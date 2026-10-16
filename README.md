@@ -2,43 +2,43 @@
 
 **Compare text-to-speech APIs side by side, measure speed and cost, and fix the words they get wrong.**
 
-AI Voice Torture Test is a small, self-hosted test bench for evaluating TTS providers by ear and by the numbers. Paste a script (or use a built-in "torture test"), play it through ElevenLabs, Cartesia, Deepgram and OpenAI at once, and compare latency, cost and how each voice handles numbers, acronyms, names and emphasis. When a voice mispronounces your name or your company's, add the word once and the app applies the fix in whatever form each provider's API supports.
+AI Voice Torture Test is a small, self-hosted test bench for evaluating and comparing TTS providers by ear and by the numbers. Paste a script (or use a built-in "torture test"), play it through ElevenLabs, Cartesia, Deepgram, and OpenAI, and compare latency, cost, and how each voice handles difficult issues like numbers, acronyms, names, and emphasis. When a voice mispronounces your name or your company's, add the word once and the app applies the fix in whatever format each provider's API supports.
 
-![AI Voice Torture Test: ElevenLabs, Cartesia, Deepgram and OpenAI reading the same Homographs test, with a pronunciation fix for "nVidia", each take showing a waveform, speed and cost](docs/images/takes.jpg)
+![AI Voice Torture Test: ElevenLabs, Cartesia, Deepgram, and OpenAI reading the same Homographs test, with a pronunciation fix for "nVidia", each take showing a waveform, speed, and cost](docs/images/takes.jpg)
 
 <!-- LIVE DEMO: add once hosted -->
 <!-- **[Try the live demo →](https://…)** (pre-recorded samples; live generation is passcode-protected) -->
 
 ## Why I built this
 
-I've had to choose text-to-speech voices more than once, first for podcast production and later at Traice Labs, a startup where we built AI personas and the voice carried much of each persona's personality. Each time, comparing providers meant juggling playgrounds, browser tabs and spreadsheets, and the questions that mattered were hard to answer side by side:
+I've had to evaluate text-to-speech providers more than once, first for podcast production and later at Traice Labs, a startup building AI personas, where the voice carried much of each persona's personality. Each time, comparing providers meant juggling playgrounds, browser tabs, and spreadsheets, and the questions that mattered were hard to answer side by side:
 
 - How quickly does it start talking?
 - What will it cost at scale?
-- Does it read "$1.5M", "03/04" and "NASA" the way a person would?
-- When it mispronounces a name, what can I actually do about it, and is that different for every API? (It is.)
+- Does it read "$1.5M", "03/04", and "NASA" the way a real person would?
+- When it mispronounces a name, what can I actually do about it, and is that different for every API? (It is different.)
 
-Voice is fast becoming one of the main ways people experience AI, so I built the tool I kept wishing I had: one script, several providers at once, the measurements next to the audio, and a single place to fix pronunciation that works across all of them.
+Voice is fast becoming one of the main ways people experience AI, so I built the tool I kept wishing I had: one script compared across several providers at once, with the measurements next to the audio and a single place to fix pronunciation that works across all of them.
 
-Measuring matters. In my own runs, OpenAI was consistently the slowest to start speaking. That may say more about a particular day than about OpenAI, which is exactly why every take shows its numbers.
+The different voice providers vary in many ways: speed, reliability, quality, cost, etc. In my own runs so far, OpenAI was usually the slowest to start speaking. I also look forward to testing additional providers (Google Cloud, Amazon Polly) and open-source voice models.
 
-*Greg Helmstetter: three-time startup cofounder and product leader who has shipped AI-native products, with a background in psychology and a long-running interest in where voice and personality meet.*
+*Greg Helmstetter: three-time startup cofounder and product leader who has shipped AI-native products, with a background in psychology and an interest in where voice and personality meet.*
 <!-- LINKS: add Substack / LinkedIn when ready -->
 
 ## Features
 
 - **Side-by-side takes** from four providers on the same text, with click-to-seek waveforms.
-- **Per-take stats:** time to first audio, total time, real-time factor, characters and estimated cost, with the fastest and cheapest marked.
+- **Per-take stats:** time to first audio, total time, real-time factor, characters, and estimated cost, with the fastest and cheapest marked.
 - **Eight test presets** aimed at known TTS weak spots: numbers and money, acronyms, homographs, names and brands, URLs and code, emphasis, units and symbols, and long sentences.
 - **Write test text with Claude:** torture tests, natural paragraphs, dialogue, or sentences built around your own problem words.
 - **One pronunciation list, four APIs.** Enter a word with a sounds-like spelling and/or IPA (Claude can suggest the IPA). The app translates it into each provider's mechanism and shows exactly what was sent.
-- **Provider tips:** workarounds from each provider's docs for pauses, emphasis, spelling things out and numbers, with copyable examples.
-- **Public-demo ready:** a free Samples mode with pre-recorded takes, plus an optional passcode, per-visitor limits and a daily budget for live generation.
+- **Provider tips:** workarounds from each provider's docs for pauses, emphasis, spelling things out, and numbers, with copyable examples.
+- **Public-demo ready:** a free Samples mode with pre-recorded takes (to avoid burning tokens), plus an optional passcode, per-visitor limits, and a daily budget for live generation.
 - **No dependencies.** Plain Node.js; nothing to `npm install`.
 
 ### How one pronunciation fix becomes four
 
-Every provider has its own way of fixing pronunciation, so the app turns one saved entry into four different instructions. The table uses Saucony, the running-shoe brand, as the example: it's said "SOCK-uh-nee", but people and voices alike often say "saw-CONE-ee", which makes it a good real-world test.
+Every provider has its own way of fixing pronunciation, so the app turns one saved dictionary entry (pronunciation overrides) into four different provider-specific instructions. The table below uses Saucony, the running-shoe brand, as the example: it's pronounced "SOCK-uh-nee", but people and TTS voices often say "saw-CONE-ee", which makes this word a good real-world test.
 
 | Provider | IPA available | Sounds-like only |
 |---|---|---|
@@ -68,7 +68,7 @@ cd ai-voice-torture-test
 
 ### 3. Add your API keys
 
-Copy `.env.example` to a new file named `.env` and paste in the keys you have. Any provider you leave blank is simply hidden. Start with one; Deepgram's free credit is the easiest.
+Copy `.env.example` to a new file named `.env` and paste in the keys you have. Any provider you leave blank is simply hidden. Start with one; Deepgram's free starter credit is the easiest.
 
 | Provider | Get a key | Free allowance* |
 |---|---|---|
@@ -160,7 +160,7 @@ docs/
 
 - **Prices and models change often.** The prices in the app are list prices from October 2026 and are for comparison only. Your bill is set by your provider plan. The app doesn't fetch prices from the providers (their speech APIs don't publish them); each price is written into that provider's file in `server/providers/` (look for `price:` next to each model) and can be updated there when a provider changes its pricing.
 - **Latency is measured from the server to the provider.** On your own computer that includes your internet connection.
-- **Your settings stay local.** Pronunciations and preferences are stored in your browser; keys stay on your server and are never sent to the browser.
+- **Your settings stay local.** Pronunciations and preferences are stored in your browser and survive closing the app; keys stay on your server and are never sent to the browser. 
 - **AI voice disclosure.** Some providers (OpenAI, for example) require telling listeners that a voice is AI-generated if you publish the audio.
 - This project isn't affiliated with or endorsed by any of the providers. Product names are trademarks of their owners.
 
@@ -173,15 +173,16 @@ Ideas for turning this hands-on test bench into a more complete evaluation tool:
 - **Repeat runs:** run each provider several times and report median and worst-case latency.
 - **Blind listening:** rate takes 1–5 without knowing the provider.
 - **More providers:** Google Cloud, Azure AI Speech, Amazon Polly, Hume, and local open-source models such as Kokoro.
+- **Speech-to-text torture tests:** TTS is only half of a spoken conversation with AI; transcription is the other half.
 
 ## Contributing
 
-Issues and pull requests are welcome, especially new providers, better test presets and corrections to the provider tips. Please keep the app dependency-free.
+Issues and pull requests are welcome, especially new providers, better test presets, and corrections to the provider tips. Please keep the app dependency-free.
 
 ## Credits
 
-Built by Greg Helmstetter with [Claude](https://claude.ai), Anthropic's AI assistant, which helped research the provider APIs, write the code and draft the docs.
+Built by Greg Helmstetter with [Claude](https://claude.ai), which researched the provider APIs, wrote the code, and drafted the docs.
 
 ## License
 
-[MIT](LICENSE) © 2026 Greg Helmstetter. You're free to use, change and share this code, including commercially, as long as the copyright notice stays with it.
+[MIT](LICENSE) © 2026 Greg Helmstetter. You're free to use, change, and share this code, including commercially, as long as the copyright notice stays with it.
