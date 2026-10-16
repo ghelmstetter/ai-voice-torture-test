@@ -1,0 +1,23 @@
+{
+  "name": "ai-voice-torture-test",
+  "version": "0.1.0",
+  "description": "Compare text-to-speech APIs side by side and fix the words they mispronounce.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "author": "Greg Helmstetter",
+  "homepage": "https://github.com/ghelmstetter/ai-voice-torture-test",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ghelmstetter/ai-voice-torture-test.git"
+  },
+  "keywords": ["text-to-speech", "tts", "voice", "pronunciation", "elevenlabs", "cartesia", "deepgram", "openai", "ipa", "ssml"],
+  "engines": {
+    "node": ">=20.12"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "build-demo": "node scripts/build-demo.js"
+  }
+}

@@ -1,0 +1,1013 @@
+{
+  "takes": [
+    {
+      "presetId": "numbers",
+      "file": "clips/numbers-elevenlabs.mp3",
+      "recordedAt": "2026-10-14T18:49:10.299Z",
+      "provider": "elevenlabs",
+      "model": "eleven_multilingual_v2",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 5349,
+        "totalMs": 5698,
+        "bytes": 330649,
+        "inputChars": 157,
+        "sentChars": 157
+      },
+      "price": {
+        "per1k": 0.08
+      },
+      "sentText": "On 03/04/2025 we closed a $1.5M round at a 12.5% discount: 2,026 shares at $740.25 each. Call 406-555-0142 ext. 3 before 5:30pm MST, or on 1/2 days, by noon.",
+      "sent": {
+        "text": "On 03/04/2025 we closed a $1.5M round at a 12.5% discount: 2,026 shares at $740.25 each. Call 406-555-0142 ext. 3 before 5:30pm MST, or on 1/2 days, by noon.",
+        "model_id": "eleven_multilingual_v2"
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "numbers",
+      "file": "clips/numbers-cartesia.mp3",
+      "recordedAt": "2026-10-14T18:49:14.078Z",
+      "provider": "cartesia",
+      "model": "sonic-3.6",
+      "voice": "db6b0ed5-d5d3-463d-ae85-518a07d3c2b4",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 787,
+        "totalMs": 3579,
+        "bytes": 370774,
+        "inputChars": 157,
+        "sentChars": 157
+      },
+      "price": {
+        "per1k": 0.05
+      },
+      "sentText": "On 03/04/2025 we closed a $1.5M round at a 12.5% discount: 2,026 shares at $740.25 each. Call 406-555-0142 ext. 3 before 5:30pm MST, or on 1/2 days, by noon.",
+      "sent": {
+        "model_id": "sonic-3.6",
+        "transcript": "On 03/04/2025 we closed a $1.5M round at a 12.5% discount: 2,026 shares at $740.25 each. Call 406-555-0142 ext. 3 before 5:30pm MST, or on 1/2 days, by noon.",
+        "voice": {
+          "id": "db6b0ed5-d5d3-463d-ae85-518a07d3c2b4"
+        },
+        "language": "en",
+        "output_format": {
+          "container": "mp3",
+          "sample_rate": 44100,
+          "bit_rate": 128000
+        }
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "numbers",
+      "file": "clips/numbers-deepgram.mp3",
+      "recordedAt": "2026-10-14T18:49:26.300Z",
+      "provider": "deepgram",
+      "model": "aura-2",
+      "voice": "aura-2-thalia-en",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 747,
+        "totalMs": 12130,
+        "bytes": 153936,
+        "inputChars": 157,
+        "sentChars": 157
+      },
+      "price": {
+        "per1k": 0.03
+      },
+      "sentText": "On 03/04/2025 we closed a $1.5M round at a 12.5% discount: 2,026 shares at $740.25 each. Call 406-555-0142 ext. 3 before 5:30pm MST, or on 1/2 days, by noon.",
+      "sent": {
+        "query": {
+          "model": "aura-2-thalia-en",
+          "encoding": "mp3"
+        },
+        "text": "On 03/04/2025 we closed a $1.5M round at a 12.5% discount: 2,026 shares at $740.25 each. Call 406-555-0142 ext. 3 before 5:30pm MST, or on 1/2 days, by noon."
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": {
+        "dg-pronunciations-applied": "0",
+        "dg-breaks-applied": "0",
+        "dg-char-count": "157"
+      }
+    },
+    {
+      "presetId": "acronyms",
+      "file": "clips/acronyms-elevenlabs.mp3",
+      "recordedAt": "2026-10-14T18:53:42.741Z",
+      "provider": "elevenlabs",
+      "model": "eleven_multilingual_v2",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 2988,
+        "totalMs": 3175,
+        "bytes": 256253,
+        "inputChars": 171,
+        "sentChars": 171
+      },
+      "price": {
+        "per1k": 0.08
+      },
+      "sentText": "The CEO asked NASA, the FBI, and a SQL DBA whether GIF rhymes with gift. The IEEE, AWS, and GPT-5 teams stayed quiet. Read the FAQ ASAP, then file the RFP by EOD Thursday.",
+      "sent": {
+        "text": "The CEO asked NASA, the FBI, and a SQL DBA whether GIF rhymes with gift. The IEEE, AWS, and GPT-5 teams stayed quiet. Read the FAQ ASAP, then file the RFP by EOD Thursday.",
+        "model_id": "eleven_multilingual_v2"
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "acronyms",
+      "file": "clips/acronyms-cartesia.mp3",
+      "recordedAt": "2026-10-14T18:53:44.646Z",
+      "provider": "cartesia",
+      "model": "sonic-3.6",
+      "voice": "db6b0ed5-d5d3-463d-ae85-518a07d3c2b4",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 391,
+        "totalMs": 1898,
+        "bytes": 254164,
+        "inputChars": 171,
+        "sentChars": 171
+      },
+      "price": {
+        "per1k": 0.05
+      },
+      "sentText": "The CEO asked NASA, the FBI, and a SQL DBA whether GIF rhymes with gift. The IEEE, AWS, and GPT-5 teams stayed quiet. Read the FAQ ASAP, then file the RFP by EOD Thursday.",
+      "sent": {
+        "model_id": "sonic-3.6",
+        "transcript": "The CEO asked NASA, the FBI, and a SQL DBA whether GIF rhymes with gift. The IEEE, AWS, and GPT-5 teams stayed quiet. Read the FAQ ASAP, then file the RFP by EOD Thursday.",
+        "voice": {
+          "id": "db6b0ed5-d5d3-463d-ae85-518a07d3c2b4"
+        },
+        "language": "en",
+        "output_format": {
+          "container": "mp3",
+          "sample_rate": 44100,
+          "bit_rate": 128000
+        }
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "acronyms",
+      "file": "clips/acronyms-deepgram.mp3",
+      "recordedAt": "2026-10-14T18:53:52.784Z",
+      "provider": "deepgram",
+      "model": "aura-2",
+      "voice": "aura-2-thalia-en",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 391,
+        "totalMs": 8037,
+        "bytes": 103248,
+        "inputChars": 171,
+        "sentChars": 171
+      },
+      "price": {
+        "per1k": 0.03
+      },
+      "sentText": "The CEO asked NASA, the FBI, and a SQL DBA whether GIF rhymes with gift. The IEEE, AWS, and GPT-5 teams stayed quiet. Read the FAQ ASAP, then file the RFP by EOD Thursday.",
+      "sent": {
+        "query": {
+          "model": "aura-2-thalia-en",
+          "encoding": "mp3"
+        },
+        "text": "The CEO asked NASA, the FBI, and a SQL DBA whether GIF rhymes with gift. The IEEE, AWS, and GPT-5 teams stayed quiet. Read the FAQ ASAP, then file the RFP by EOD Thursday."
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": {
+        "dg-pronunciations-applied": "0",
+        "dg-breaks-applied": "0",
+        "dg-char-count": "171"
+      }
+    },
+    {
+      "presetId": "homographs",
+      "file": "clips/homographs-elevenlabs.mp3",
+      "recordedAt": "2026-10-14T18:56:56.808Z",
+      "provider": "elevenlabs",
+      "model": "eleven_multilingual_v2",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 2881,
+        "totalMs": 3072,
+        "bytes": 225741,
+        "inputChars": 249,
+        "sentChars": 249
+      },
+      "price": {
+        "per1k": 0.08
+      },
+      "sentText": "I read the lead story yesterday, and I’ll read it again tomorrow. The wind was too strong to wind the sail. She will present the present to the bass player, who keeps a bass in his tank. We must polish the Polish desk before the live show goes live.",
+      "sent": {
+        "text": "I read the lead story yesterday, and I’ll read it again tomorrow. The wind was too strong to wind the sail. She will present the present to the bass player, who keeps a bass in his tank. We must polish the Polish desk before the live show goes live.",
+        "model_id": "eleven_multilingual_v2"
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "homographs",
+      "file": "clips/homographs-cartesia.mp3",
+      "recordedAt": "2026-10-14T18:56:58.881Z",
+      "provider": "cartesia",
+      "model": "sonic-3.6",
+      "voice": "db6b0ed5-d5d3-463d-ae85-518a07d3c2b4",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 450,
+        "totalMs": 2005,
+        "bytes": 223235,
+        "inputChars": 249,
+        "sentChars": 249
+      },
+      "price": {
+        "per1k": 0.05
+      },
+      "sentText": "I read the lead story yesterday, and I’ll read it again tomorrow. The wind was too strong to wind the sail. She will present the present to the bass player, who keeps a bass in his tank. We must polish the Polish desk before the live show goes live.",
+      "sent": {
+        "model_id": "sonic-3.6",
+        "transcript": "I read the lead story yesterday, and I’ll read it again tomorrow. The wind was too strong to wind the sail. She will present the present to the bass player, who keeps a bass in his tank. We must polish the Polish desk before the live show goes live.",
+        "voice": {
+          "id": "db6b0ed5-d5d3-463d-ae85-518a07d3c2b4"
+        },
+        "language": "en",
+        "output_format": {
+          "container": "mp3",
+          "sample_rate": 44100,
+          "bit_rate": 128000
+        }
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "homographs",
+      "file": "clips/homographs-deepgram.mp3",
+      "recordedAt": "2026-10-14T18:57:03.551Z",
+      "provider": "deepgram",
+      "model": "aura-2",
+      "voice": "aura-2-thalia-en",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 585,
+        "totalMs": 4641,
+        "bytes": 88704,
+        "inputChars": 249,
+        "sentChars": 249
+      },
+      "price": {
+        "per1k": 0.03
+      },
+      "sentText": "I read the lead story yesterday, and I’ll read it again tomorrow. The wind was too strong to wind the sail. She will present the present to the bass player, who keeps a bass in his tank. We must polish the Polish desk before the live show goes live.",
+      "sent": {
+        "query": {
+          "model": "aura-2-thalia-en",
+          "encoding": "mp3"
+        },
+        "text": "I read the lead story yesterday, and I’ll read it again tomorrow. The wind was too strong to wind the sail. She will present the present to the bass player, who keeps a bass in his tank. We must polish the Polish desk before the live show goes live."
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": {
+        "dg-pronunciations-applied": "0",
+        "dg-breaks-applied": "0",
+        "dg-char-count": "249"
+      }
+    },
+    {
+      "presetId": "homographs",
+      "file": "clips/homographs-openai.mp3",
+      "recordedAt": "2026-10-14T18:57:06.955Z",
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 1945,
+        "totalMs": 3320,
+        "bytes": 230400,
+        "inputChars": 249,
+        "sentChars": 249
+      },
+      "price": {
+        "perMin": 0.015
+      },
+      "sentText": "I read the lead story yesterday, and I’ll read it again tomorrow. The wind was too strong to wind the sail. She will present the present to the bass player, who keeps a bass in his tank. We must polish the Polish desk before the live show goes live.",
+      "sent": {
+        "model": "gpt-4o-mini-tts",
+        "voice": "marin",
+        "input": "I read the lead story yesterday, and I’ll read it again tomorrow. The wind was too strong to wind the sail. She will present the present to the bass player, who keeps a bass in his tank. We must polish the Polish desk before the live show goes live.",
+        "response_format": "mp3"
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "emphasis",
+      "file": "clips/emphasis-elevenlabs.mp3",
+      "recordedAt": "2026-10-14T19:01:00.277Z",
+      "provider": "elevenlabs",
+      "model": "eleven_multilingual_v2",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 2232,
+        "totalMs": 2414,
+        "bytes": 186453,
+        "inputChars": 156,
+        "sentChars": 156
+      },
+      "price": {
+        "per1k": 0.08
+      },
+      "sentText": "I didn’t say she stole the money. I didn’t say SHE stole the money. Wait... you’re serious? Really?! Okay — fine. (Quietly) Let’s never speak of this again.",
+      "sent": {
+        "text": "I didn’t say she stole the money. I didn’t say SHE stole the money. Wait... you’re serious? Really?! Okay — fine. (Quietly) Let’s never speak of this again.",
+        "model_id": "eleven_multilingual_v2"
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "emphasis",
+      "file": "clips/emphasis-cartesia.mp3",
+      "recordedAt": "2026-10-14T19:01:01.849Z",
+      "provider": "cartesia",
+      "model": "sonic-3.6",
+      "voice": "db6b0ed5-d5d3-463d-ae85-518a07d3c2b4",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 374,
+        "totalMs": 1415,
+        "bytes": 143822,
+        "inputChars": 156,
+        "sentChars": 156
+      },
+      "price": {
+        "per1k": 0.05
+      },
+      "sentText": "I didn’t say she stole the money. I didn’t say SHE stole the money. Wait... you’re serious? Really?! Okay — fine. (Quietly) Let’s never speak of this again.",
+      "sent": {
+        "model_id": "sonic-3.6",
+        "transcript": "I didn’t say she stole the money. I didn’t say SHE stole the money. Wait... you’re serious? Really?! Okay — fine. (Quietly) Let’s never speak of this again.",
+        "voice": {
+          "id": "db6b0ed5-d5d3-463d-ae85-518a07d3c2b4"
+        },
+        "language": "en",
+        "output_format": {
+          "container": "mp3",
+          "sample_rate": 44100,
+          "bit_rate": 128000
+        }
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "emphasis",
+      "file": "clips/emphasis-deepgram.mp3",
+      "recordedAt": "2026-10-14T19:01:05.675Z",
+      "provider": "deepgram",
+      "model": "aura-2",
+      "voice": "aura-2-thalia-en",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 412,
+        "totalMs": 3799,
+        "bytes": 71136,
+        "inputChars": 156,
+        "sentChars": 156
+      },
+      "price": {
+        "per1k": 0.03
+      },
+      "sentText": "I didn’t say she stole the money. I didn’t say SHE stole the money. Wait... you’re serious? Really?! Okay — fine. (Quietly) Let’s never speak of this again.",
+      "sent": {
+        "query": {
+          "model": "aura-2-thalia-en",
+          "encoding": "mp3"
+        },
+        "text": "I didn’t say she stole the money. I didn’t say SHE stole the money. Wait... you’re serious? Really?! Okay — fine. (Quietly) Let’s never speak of this again."
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": {
+        "dg-pronunciations-applied": "0",
+        "dg-breaks-applied": "0",
+        "dg-char-count": "156"
+      }
+    },
+    {
+      "presetId": "units",
+      "file": "clips/units-elevenlabs.mp3",
+      "recordedAt": "2026-10-14T19:03:13.679Z",
+      "provider": "elevenlabs",
+      "model": "eleven_multilingual_v2",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 2859,
+        "totalMs": 3141,
+        "bytes": 367848,
+        "inputChars": 202,
+        "sentChars": 202
+      },
+      "price": {
+        "per1k": 0.08
+      },
+      "sentText": "Mix 3/4 cup and bake at 350°F for 25–30 min. The 10 km trail gains 1,200 ft at a 7:45/mi pace. Shoot in 16:9 at 2x, keep it within ±0.5 mm, and note the CO₂ and H2O levels for 1st, 22nd and 103rd place.",
+      "sent": {
+        "text": "Mix 3/4 cup and bake at 350°F for 25–30 min. The 10 km trail gains 1,200 ft at a 7:45/mi pace. Shoot in 16:9 at 2x, keep it within ±0.5 mm, and note the CO₂ and H2O levels for 1st, 22nd and 103rd place.",
+        "model_id": "eleven_multilingual_v2"
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "units",
+      "file": "clips/units-cartesia.mp3",
+      "recordedAt": "2026-10-14T19:03:17.254Z",
+      "provider": "cartesia",
+      "model": "sonic-3.6",
+      "voice": "db6b0ed5-d5d3-463d-ae85-518a07d3c2b4",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 636,
+        "totalMs": 3340,
+        "bytes": 350294,
+        "inputChars": 202,
+        "sentChars": 202
+      },
+      "price": {
+        "per1k": 0.05
+      },
+      "sentText": "Mix 3/4 cup and bake at 350°F for 25–30 min. The 10 km trail gains 1,200 ft at a 7:45/mi pace. Shoot in 16:9 at 2x, keep it within ±0.5 mm, and note the CO₂ and H2O levels for 1st, 22nd and 103rd place.",
+      "sent": {
+        "model_id": "sonic-3.6",
+        "transcript": "Mix 3/4 cup and bake at 350°F for 25–30 min. The 10 km trail gains 1,200 ft at a 7:45/mi pace. Shoot in 16:9 at 2x, keep it within ±0.5 mm, and note the CO₂ and H2O levels for 1st, 22nd and 103rd place.",
+        "voice": {
+          "id": "db6b0ed5-d5d3-463d-ae85-518a07d3c2b4"
+        },
+        "language": "en",
+        "output_format": {
+          "container": "mp3",
+          "sample_rate": 44100,
+          "bit_rate": 128000
+        }
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "units",
+      "file": "clips/units-deepgram.mp3",
+      "recordedAt": "2026-10-14T19:03:27.350Z",
+      "provider": "deepgram",
+      "model": "aura-2",
+      "voice": "aura-2-thalia-en",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 472,
+        "totalMs": 9917,
+        "bytes": 126144,
+        "inputChars": 202,
+        "sentChars": 202
+      },
+      "price": {
+        "per1k": 0.03
+      },
+      "sentText": "Mix 3/4 cup and bake at 350°F for 25–30 min. The 10 km trail gains 1,200 ft at a 7:45/mi pace. Shoot in 16:9 at 2x, keep it within ±0.5 mm, and note the CO₂ and H2O levels for 1st, 22nd and 103rd place.",
+      "sent": {
+        "query": {
+          "model": "aura-2-thalia-en",
+          "encoding": "mp3"
+        },
+        "text": "Mix 3/4 cup and bake at 350°F for 25–30 min. The 10 km trail gains 1,200 ft at a 7:45/mi pace. Shoot in 16:9 at 2x, keep it within ±0.5 mm, and note the CO₂ and H2O levels for 1st, 22nd and 103rd place."
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": {
+        "dg-pronunciations-applied": "0",
+        "dg-breaks-applied": "0",
+        "dg-char-count": "202"
+      }
+    },
+    {
+      "presetId": "longform",
+      "file": "clips/longform-elevenlabs.mp3",
+      "recordedAt": "2026-10-14T19:07:25.626Z",
+      "provider": "elevenlabs",
+      "model": "eleven_multilingual_v2",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 3010,
+        "totalMs": 4288,
+        "bytes": 293451,
+        "inputChars": 322,
+        "sentChars": 322
+      },
+      "price": {
+        "per1k": 0.08
+      },
+      "sentText": "If you have ever tried to explain to a room full of tired engineers, at the end of a long Friday, why the dashboard that everyone had agreed was finished on Tuesday now needs a completely different layout because a single customer asked a single question during a single demo, you already know exactly how this story ends.",
+      "sent": {
+        "text": "If you have ever tried to explain to a room full of tired engineers, at the end of a long Friday, why the dashboard that everyone had agreed was finished on Tuesday now needs a completely different layout because a single customer asked a single question during a single demo, you already know exactly how this story ends.",
+        "model_id": "eleven_multilingual_v2"
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "longform",
+      "file": "clips/longform-cartesia.mp3",
+      "recordedAt": "2026-10-14T19:07:28.085Z",
+      "provider": "cartesia",
+      "model": "sonic-3.6",
+      "voice": "db6b0ed5-d5d3-463d-ae85-518a07d3c2b4",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 286,
+        "totalMs": 2452,
+        "bytes": 285929,
+        "inputChars": 322,
+        "sentChars": 322
+      },
+      "price": {
+        "per1k": 0.05
+      },
+      "sentText": "If you have ever tried to explain to a room full of tired engineers, at the end of a long Friday, why the dashboard that everyone had agreed was finished on Tuesday now needs a completely different layout because a single customer asked a single question during a single demo, you already know exactly how this story ends.",
+      "sent": {
+        "model_id": "sonic-3.6",
+        "transcript": "If you have ever tried to explain to a room full of tired engineers, at the end of a long Friday, why the dashboard that everyone had agreed was finished on Tuesday now needs a completely different layout because a single customer asked a single question during a single demo, you already know exactly how this story ends.",
+        "voice": {
+          "id": "db6b0ed5-d5d3-463d-ae85-518a07d3c2b4"
+        },
+        "language": "en",
+        "output_format": {
+          "container": "mp3",
+          "sample_rate": 44100,
+          "bit_rate": 128000
+        }
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "longform",
+      "file": "clips/longform-deepgram.mp3",
+      "recordedAt": "2026-10-14T19:07:36.539Z",
+      "provider": "deepgram",
+      "model": "aura-2",
+      "voice": "aura-2-thalia-en",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 301,
+        "totalMs": 8398,
+        "bytes": 109296,
+        "inputChars": 322,
+        "sentChars": 322
+      },
+      "price": {
+        "per1k": 0.03
+      },
+      "sentText": "If you have ever tried to explain to a room full of tired engineers, at the end of a long Friday, why the dashboard that everyone had agreed was finished on Tuesday now needs a completely different layout because a single customer asked a single question during a single demo, you already know exactly how this story ends.",
+      "sent": {
+        "query": {
+          "model": "aura-2-thalia-en",
+          "encoding": "mp3"
+        },
+        "text": "If you have ever tried to explain to a room full of tired engineers, at the end of a long Friday, why the dashboard that everyone had agreed was finished on Tuesday now needs a completely different layout because a single customer asked a single question during a single demo, you already know exactly how this story ends."
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": {
+        "dg-pronunciations-applied": "0",
+        "dg-breaks-applied": "0",
+        "dg-char-count": "322"
+      }
+    },
+    {
+      "presetId": "longform",
+      "file": "clips/longform-openai.mp3",
+      "recordedAt": "2026-10-14T19:07:40.361Z",
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 1632,
+        "totalMs": 3808,
+        "bytes": 309120,
+        "inputChars": 322,
+        "sentChars": 322
+      },
+      "price": {
+        "perMin": 0.015
+      },
+      "sentText": "If you have ever tried to explain to a room full of tired engineers, at the end of a long Friday, why the dashboard that everyone had agreed was finished on Tuesday now needs a completely different layout because a single customer asked a single question during a single demo, you already know exactly how this story ends.",
+      "sent": {
+        "model": "gpt-4o-mini-tts",
+        "voice": "marin",
+        "input": "If you have ever tried to explain to a room full of tired engineers, at the end of a long Friday, why the dashboard that everyone had agreed was finished on Tuesday now needs a completely different layout because a single customer asked a single question during a single demo, you already know exactly how this story ends.",
+        "response_format": "mp3"
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "names",
+      "file": "clips/names-elevenlabs.mp3",
+      "recordedAt": "2026-10-15T19:48:16.713Z",
+      "provider": "elevenlabs",
+      "model": "eleven_multilingual_v2",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 2853,
+        "totalMs": 3049,
+        "bytes": 201918,
+        "inputChars": 196,
+        "sentChars": 196
+      },
+      "price": {
+        "per1k": 0.08
+      },
+      "sentText": "Siobhan Nguyen and Joaquin Reyes flew from Spokane to Worcester for the Saucony launch. They toasted with Moët, drove a Porsche past the Hermès store, and argued about how to say Xiaomi and Boise.",
+      "sent": {
+        "text": "Siobhan Nguyen and Joaquin Reyes flew from Spokane to Worcester for the Saucony launch. They toasted with Moët, drove a Porsche past the Hermès store, and argued about how to say Xiaomi and Boise.",
+        "model_id": "eleven_multilingual_v2"
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "names",
+      "file": "clips/names-cartesia.mp3",
+      "recordedAt": "2026-10-15T19:48:18.526Z",
+      "provider": "cartesia",
+      "model": "sonic-3.6",
+      "voice": "db6b0ed5-d5d3-463d-ae85-518a07d3c2b4",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 533,
+        "totalMs": 1704,
+        "bytes": 184782,
+        "inputChars": 196,
+        "sentChars": 196
+      },
+      "price": {
+        "per1k": 0.05
+      },
+      "sentText": "Siobhan Nguyen and Joaquin Reyes flew from Spokane to Worcester for the Saucony launch. They toasted with Moët, drove a Porsche past the Hermès store, and argued about how to say Xiaomi and Boise.",
+      "sent": {
+        "model_id": "sonic-3.6",
+        "transcript": "Siobhan Nguyen and Joaquin Reyes flew from Spokane to Worcester for the Saucony launch. They toasted with Moët, drove a Porsche past the Hermès store, and argued about how to say Xiaomi and Boise.",
+        "voice": {
+          "id": "db6b0ed5-d5d3-463d-ae85-518a07d3c2b4"
+        },
+        "language": "en",
+        "output_format": {
+          "container": "mp3",
+          "sample_rate": 44100,
+          "bit_rate": 128000
+        }
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "names",
+      "file": "clips/names-deepgram.mp3",
+      "recordedAt": "2026-10-15T19:48:24.537Z",
+      "provider": "deepgram",
+      "model": "aura-2",
+      "voice": "aura-2-thalia-en",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 415,
+        "totalMs": 5905,
+        "bytes": 74016,
+        "inputChars": 196,
+        "sentChars": 196
+      },
+      "price": {
+        "per1k": 0.03
+      },
+      "sentText": "Siobhan Nguyen and Joaquin Reyes flew from Spokane to Worcester for the Saucony launch. They toasted with Moët, drove a Porsche past the Hermès store, and argued about how to say Xiaomi and Boise.",
+      "sent": {
+        "query": {
+          "model": "aura-2-thalia-en",
+          "encoding": "mp3"
+        },
+        "text": "Siobhan Nguyen and Joaquin Reyes flew from Spokane to Worcester for the Saucony launch. They toasted with Moët, drove a Porsche past the Hermès store, and argued about how to say Xiaomi and Boise."
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": {
+        "dg-pronunciations-applied": "0",
+        "dg-breaks-applied": "0",
+        "dg-char-count": "196"
+      }
+    },
+    {
+      "presetId": "names",
+      "file": "clips/names-openai.mp3",
+      "recordedAt": "2026-10-15T19:48:32.066Z",
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 2295,
+        "totalMs": 7522,
+        "bytes": 203520,
+        "inputChars": 196,
+        "sentChars": 196
+      },
+      "price": {
+        "perMin": 0.015
+      },
+      "sentText": "Siobhan Nguyen and Joaquin Reyes flew from Spokane to Worcester for the Saucony launch. They toasted with Moët, drove a Porsche past the Hermès store, and argued about how to say Xiaomi and Boise.",
+      "sent": {
+        "model": "gpt-4o-mini-tts",
+        "voice": "marin",
+        "input": "Siobhan Nguyen and Joaquin Reyes flew from Spokane to Worcester for the Saucony launch. They toasted with Moët, drove a Porsche past the Hermès store, and argued about how to say Xiaomi and Boise.",
+        "response_format": "mp3"
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "numbers",
+      "file": "clips/numbers-openai.mp3",
+      "recordedAt": "2026-10-15T19:48:52.980Z",
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 2286,
+        "totalMs": 7738,
+        "bytes": 345600,
+        "inputChars": 157,
+        "sentChars": 157
+      },
+      "price": {
+        "perMin": 0.015
+      },
+      "sentText": "On 03/04/2025 we closed a $1.5M round at a 12.5% discount: 2,026 shares at $740.25 each. Call 406-555-0142 ext. 3 before 5:30pm MST, or on 1/2 days, by noon.",
+      "sent": {
+        "model": "gpt-4o-mini-tts",
+        "voice": "marin",
+        "input": "On 03/04/2025 we closed a $1.5M round at a 12.5% discount: 2,026 shares at $740.25 each. Call 406-555-0142 ext. 3 before 5:30pm MST, or on 1/2 days, by noon.",
+        "response_format": "mp3"
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "acronyms",
+      "file": "clips/acronyms-openai.mp3",
+      "recordedAt": "2026-10-15T19:48:55.983Z",
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 1206,
+        "totalMs": 2990,
+        "bytes": 285696,
+        "inputChars": 171,
+        "sentChars": 171
+      },
+      "price": {
+        "perMin": 0.015
+      },
+      "sentText": "The CEO asked NASA, the FBI, and a SQL DBA whether GIF rhymes with gift. The IEEE, AWS, and GPT-5 teams stayed quiet. Read the FAQ ASAP, then file the RFP by EOD Thursday.",
+      "sent": {
+        "model": "gpt-4o-mini-tts",
+        "voice": "marin",
+        "input": "The CEO asked NASA, the FBI, and a SQL DBA whether GIF rhymes with gift. The IEEE, AWS, and GPT-5 teams stayed quiet. Read the FAQ ASAP, then file the RFP by EOD Thursday.",
+        "response_format": "mp3"
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "emphasis",
+      "file": "clips/emphasis-openai.mp3",
+      "recordedAt": "2026-10-15T19:49:00.605Z",
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 738,
+        "totalMs": 4593,
+        "bytes": 233088,
+        "inputChars": 156,
+        "sentChars": 156
+      },
+      "price": {
+        "perMin": 0.015
+      },
+      "sentText": "I didn’t say she stole the money. I didn’t say SHE stole the money. Wait... you’re serious? Really?! Okay — fine. (Quietly) Let’s never speak of this again.",
+      "sent": {
+        "model": "gpt-4o-mini-tts",
+        "voice": "marin",
+        "input": "I didn’t say she stole the money. I didn’t say SHE stole the money. Wait... you’re serious? Really?! Okay — fine. (Quietly) Let’s never speak of this again.",
+        "response_format": "mp3"
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "units",
+      "file": "clips/units-openai.mp3",
+      "recordedAt": "2026-10-15T19:49:15.001Z",
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 2523,
+        "totalMs": 14381,
+        "bytes": 342528,
+        "inputChars": 202,
+        "sentChars": 202
+      },
+      "price": {
+        "perMin": 0.015
+      },
+      "sentText": "Mix 3/4 cup and bake at 350°F for 25–30 min. The 10 km trail gains 1,200 ft at a 7:45/mi pace. Shoot in 16:9 at 2x, keep it within ±0.5 mm, and note the CO₂ and H2O levels for 1st, 22nd and 103rd place.",
+      "sent": {
+        "model": "gpt-4o-mini-tts",
+        "voice": "marin",
+        "input": "Mix 3/4 cup and bake at 350°F for 25–30 min. The 10 km trail gains 1,200 ft at a 7:45/mi pace. Shoot in 16:9 at 2x, keep it within ±0.5 mm, and note the CO₂ and H2O levels for 1st, 22nd and 103rd place.",
+        "response_format": "mp3"
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "web",
+      "file": "clips/web-elevenlabs.mp3",
+      "recordedAt": "2026-10-16T20:10:27.822Z",
+      "provider": "elevenlabs",
+      "model": "eleven_multilingual_v2",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 4068,
+        "totalMs": 4555,
+        "bytes": 342352,
+        "inputChars": 170,
+        "sentChars": 170
+      },
+      "price": {
+        "per1k": 0.08
+      },
+      "sentText": "Email hello@example.com or visit https://docs.example.dev/v2/api?id=42#auth. Then run npm i -D @types/node and cd ~/src && ls -la. Follow @voice_torture_test for updates.",
+      "sent": {
+        "text": "Email hello@example.com or visit https://docs.example.dev/v2/api?id=42#auth. Then run npm i -D @types/node and cd ~/src && ls -la. Follow @voice_torture_test for updates.",
+        "model_id": "eleven_multilingual_v2"
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "web",
+      "file": "clips/web-cartesia.mp3",
+      "recordedAt": "2026-10-16T20:10:30.882Z",
+      "provider": "cartesia",
+      "model": "sonic-3.6",
+      "voice": "db6b0ed5-d5d3-463d-ae85-518a07d3c2b4",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 466,
+        "totalMs": 2959,
+        "bytes": 370774,
+        "inputChars": 170,
+        "sentChars": 170
+      },
+      "price": {
+        "per1k": 0.05
+      },
+      "sentText": "Email hello@example.com or visit https://docs.example.dev/v2/api?id=42#auth. Then run npm i -D @types/node and cd ~/src && ls -la. Follow @voice_torture_test for updates.",
+      "sent": {
+        "model_id": "sonic-3.6",
+        "transcript": "Email hello@example.com or visit https://docs.example.dev/v2/api?id=42#auth. Then run npm i -D @types/node and cd ~/src && ls -la. Follow @voice_torture_test for updates.",
+        "voice": {
+          "id": "db6b0ed5-d5d3-463d-ae85-518a07d3c2b4"
+        },
+        "language": "en",
+        "output_format": {
+          "container": "mp3",
+          "sample_rate": 44100,
+          "bit_rate": 128000
+        }
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "web",
+      "file": "clips/web-deepgram.mp3",
+      "recordedAt": "2026-10-16T20:10:43.891Z",
+      "provider": "deepgram",
+      "model": "aura-2",
+      "voice": "aura-2-thalia-en",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 331,
+        "totalMs": 12898,
+        "bytes": 165744,
+        "inputChars": 170,
+        "sentChars": 170
+      },
+      "price": {
+        "per1k": 0.03
+      },
+      "sentText": "Email hello@example.com or visit https://docs.example.dev/v2/api?id=42#auth. Then run npm i -D @types/node and cd ~/src && ls -la. Follow @voice_torture_test for updates.",
+      "sent": {
+        "query": {
+          "model": "aura-2-thalia-en",
+          "encoding": "mp3"
+        },
+        "text": "Email hello@example.com or visit https://docs.example.dev/v2/api?id=42#auth. Then run npm i -D @types/node and cd ~/src && ls -la. Follow @voice_torture_test for updates."
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": {
+        "dg-pronunciations-applied": "0",
+        "dg-breaks-applied": "0",
+        "dg-char-count": "170"
+      }
+    },
+    {
+      "presetId": "web",
+      "file": "clips/web-openai.mp3",
+      "recordedAt": "2026-10-16T20:10:51.430Z",
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 2148,
+        "totalMs": 7531,
+        "bytes": 363264,
+        "inputChars": 170,
+        "sentChars": 170
+      },
+      "price": {
+        "perMin": 0.015
+      },
+      "sentText": "Email hello@example.com or visit https://docs.example.dev/v2/api?id=42#auth. Then run npm i -D @types/node and cd ~/src && ls -la. Follow @voice_torture_test for updates.",
+      "sent": {
+        "model": "gpt-4o-mini-tts",
+        "voice": "marin",
+        "input": "Email hello@example.com or visit https://docs.example.dev/v2/api?id=42#auth. Then run npm i -D @types/node and cd ~/src && ls -la. Follow @voice_torture_test for updates.",
+        "response_format": "mp3"
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    }
+  ],
+  "updatedAt": "2026-10-16T20:10:51.431Z"
+}
