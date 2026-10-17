@@ -23,6 +23,8 @@ const send = (res, status, data) => {
 };
 
 async function readJson(req) {
+  // Some hosts (Vercel) parse the body before it reaches the handler.
+  if (req.body !== undefined) return typeof req.body === 'string' ? JSON.parse(req.body || '{}') : req.body;
   let size = 0;
   const chunks = [];
   for await (const c of req) {
