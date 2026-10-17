@@ -48,7 +48,9 @@ async function init() {
     return;
   }
   const ready = cfg.providers.filter((p) => p.configured);
-  if (!ready.length) {
+  if (!cfg.liveEnabled) {
+    showNotice('<strong>Hosted demo:</strong> you’re hearing pre-recorded takes. To generate your own audio and try pronunciation fixes live, <a href="https://github.com/ghelmstetter/ai-voice-torture-test#quick-start" target="_blank" rel="noopener">run it locally</a> with your own keys.', 'info');
+  } else if (!ready.length) {
     showNotice('No API keys found. Copy <code>.env.example</code> to <code>.env</code>, add at least one provider key, then restart the server.');
   }
   if (cfg.passcodeRequired) {
@@ -58,6 +60,7 @@ async function init() {
   }
   if (!cfg.liveEnabled) {
     $('#mode-live').disabled = true;
+    $('#mode-live').title = 'Live generation runs on your own computer with your own API keys.';
     setMode('samples');
   }
   if (!cfg.claudeConfigured) {
@@ -87,8 +90,9 @@ async function init() {
   onTextChange();
 }
 
-function showNotice(html) {
+function showNotice(html, kind = '') {
   const n = $('#notice');
+  n.className = `notice ${kind}`.trim();
   n.innerHTML = html;
   n.hidden = false;
 }

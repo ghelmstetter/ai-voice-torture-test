@@ -123,6 +123,8 @@ label.check { display: flex; align-items: center; gap: 8px; }
   background: rgba(242, 193, 78, 0.08); border: 1px solid rgba(242, 193, 78, 0.3); color: #f6dc9c; font-size: 14px;
 }
 .notice code { color: var(--text); }
+.notice a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.notice.info { background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 255, 255, 0.14); color: var(--text); }
 
 /* ---------- Script ---------- */
 textarea#text {
