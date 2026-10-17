@@ -6,8 +6,7 @@ AI Voice Torture Test is a small, self-hosted test bench for evaluating and comp
 
 ![AI Voice Torture Test: ElevenLabs, Cartesia, Deepgram, and OpenAI reading the same Homographs test, with a pronunciation fix for "nVidia", each take showing a waveform, speed, and cost](docs/images/takes.jpg)
 
-<!-- LIVE DEMO: add once hosted -->
-<!-- **[Try the live demo →](https://…)** (pre-recorded samples; live generation is passcode-protected) -->
+**[Try the hosted demo →](https://ai-voice-torture-test.vercel.app/)** Listen to every provider read all eight torture tests, with speed and cost for each take. No sign-up or API key needed; to generate your own audio, run it locally (below).
 
 ## Why I built this
 
@@ -123,6 +122,8 @@ Anyone who clicks **Generate** on a public copy spends your API credit, so:
 2. **Protect live generation** with `LIVE_MODE=off`, or with `LIVE_PASSCODE` plus `DAILY_REQUESTS_PER_IP` and `DAILY_CHAR_BUDGET`.
 
 Rate limits are kept in memory and reset when the server restarts. `server/index.js` exports a plain Node `handler(req, res)`, so the app can be wrapped for most hosts.
+
+**Hosting on Vercel (free Hobby plan):** the repo includes `vercel.json` and `api/index.js`, so you can import it at [vercel.com](https://vercel.com) with Framework Preset **Other** and the Root Directory left as `./`. Add the environment variable `LIVE_MODE=off` for a Samples-only demo that needs no API keys. On serverless hosts the in-memory limits don't hold across instances, so if you enable live generation there, also set spending limits with your providers.
 
 ## Adding a provider
 
