@@ -1343,7 +1343,55 @@
       "applied": [],
       "warnings": [],
       "providerReport": null
+    },
+    {
+      "presetId": "units",
+      "file": "clips/units-gemini.wav",
+      "recordedAt": "2026-10-18T18:30:52.183Z",
+      "provider": "gemini",
+      "model": "gemini-3.8-flash-tts",
+      "voice": "Kore",
+      "contentType": "audio/wav",
+      "metrics": {
+        "ttfaMs": 11801,
+        "totalMs": 12016,
+        "bytes": 1521734,
+        "inputChars": 202,
+        "sentChars": 202
+      },
+      "price": {
+        "perMin": 0.0135
+      },
+      "sentText": "Mix 3/4 cup and bake at 350°F for 25–30 min. The 10 km trail gains 1,200 ft at a 7:45/mi pace. Shoot in 16:9 at 2x, keep it within ±0.5 mm, and note the CO₂ and H2O levels for 1st, 22nd and 103rd place.",
+      "sent": {
+        "model": "gemini-3.8-flash-tts",
+        "input": [
+          {
+            "type": "user_input",
+            "content": [
+              {
+                "type": "text",
+                "text": "Mix 3/4 cup and bake at 350°F for 25–30 min. The 10 km trail gains 1,200 ft at a 7:45/mi pace. Shoot in 16:9 at 2x, keep it within ±0.5 mm, and note the CO₂ and H2O levels for 1st, 22nd and 103rd place."
+              }
+            ]
+          }
+        ],
+        "response_format": {
+          "type": "audio",
+          "mime_type": "audio/wav"
+        },
+        "generation_config": {
+          "speech_config": [
+            {
+              "voice": "Kore"
+            }
+          ]
+        }
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
     }
   ],
-  "updatedAt": "2026-10-17T22:05:36.296Z"
+  "updatedAt": "2026-10-18T18:30:52.186Z"
 }
