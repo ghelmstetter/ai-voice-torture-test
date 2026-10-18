@@ -74,20 +74,21 @@ When a provider is on, its row shows:
 - **Model.** The note under the pickers sums up that model's strengths and pronunciation support. The model can change how a pronunciation fix is applied (for example, ElevenLabs v4 gets inline IPA while Multilingual v2 gets a respelling).
 - **Voice.**
   - ElevenLabs and Cartesia load the voices in your account (with a few defaults as fallback).
-  - Deepgram and OpenAI use built-in lists.
+  - Deepgram, OpenAI and Google Gemini use built-in lists. Gemini shows each voice's character (Firm, Warm, Gravelly and so on).
   - Deepgram voices belong to a model, so the list changes when you switch between Aura-2 and Flux.
   - OpenAI's `tts-1` models have 9 of the 13 voices. Picking Marin or Cedar with them falls back to Alloy, with a warning.
 - **Extra controls**, only where the API supports them:
   - **OpenAI → Instructions** (gpt-4o-mini-tts only): plain-English direction such as *"Calm narrator, slight smile, slow down on numbers."* This prompt is OpenAI's main lever for tone and pronunciation.
   - **Cartesia → Emotion (beta)**: calm, content, excited, sad, angry and more.
+  - **Google Gemini → Style**: plain-English direction for tone, emotion and pace, such as *"Warm and unhurried, like a late-night radio host."* Gemini reads the script word for word, so directions belong here, not in the text.
 
-**Speed slider** (top right) applies to every provider, held within each one's allowed range: ElevenLabs 0.7–1.2×, Cartesia 0.6–1.5×, Deepgram 0.7–1.5×. Deepgram Flux can't combine speed with a pronunciation override, so it uses 1.0× in that case and says so.
+**Speed slider** (top right) applies to every provider except Google Gemini, which has no speed setting (ask for a pace in its Style box instead). Speed is held within each one's allowed range: ElevenLabs 0.7–1.2×, Cartesia 0.6–1.5×, Deepgram 0.7–1.5×. Deepgram Flux can't combine speed with a pronunciation override, so it uses 1.0× in that case and says so.
 
 **Preview what's sent** shows, for each provider, the exact text it will receive after pronunciation fixes, and which fix each word got. It's free: nothing is generated.
 
-**Generate N takes · ~$0.00X** runs every switched-on provider at the same time. The cost is an estimate from list prices and character count. (OpenAI's gpt-4o-mini-tts is priced per audio minute, estimated at about 15 characters per second.)
+**Generate N takes · ~$0.00X** runs every switched-on provider at the same time. The cost is an estimate from list prices and character count. (OpenAI's gpt-4o-mini-tts and Google Gemini are priced per audio minute, estimated at about 15 characters per second.)
 
-A **Passcode** field appears only if `LIVE_PASSCODE` is set in `.env`.
+A **Passcode** field appears above Generate only if `LIVE_PASSCODE` is set in `.env`. On a hosted copy, a link ending in `?code=yourpasscode` fills it in automatically.
 
 ---
 
@@ -151,6 +152,7 @@ You need at least one of **Sounds like** or **IPA**; both is best. IPA is precis
 | Cartesia | inline `<<ˈ|s|ɑ|k|ə|n|i>>` phonemes | respelling |
 | Deepgram | inline IPA override | respelling |
 | OpenAI | added to **Instructions** (gpt-4o-mini-tts) | respelling |
+| Google Gemini | added to **Style** | respelling |
 
 A **dashed "no fix" chip** means that provider can't use what you've entered. Hover to see why, then fill in the other field.
 

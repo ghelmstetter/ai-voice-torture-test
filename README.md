@@ -2,7 +2,7 @@
 
 **Compare text-to-speech APIs side by side, measure speed and cost, and fix the words they get wrong.**
 
-AI Voice Torture Test is a small, self-hosted test bench for evaluating and comparing TTS providers by ear and by the numbers. Paste a script (or use a built-in "torture test"), play it through ElevenLabs, Cartesia, Deepgram, and OpenAI, and compare latency, cost, and how each voice handles difficult issues like numbers, acronyms, names, and emphasis. When a voice mispronounces your name or your company's, add the word once and the app applies the fix in whatever format each provider's API supports.
+AI Voice Torture Test is a small, self-hosted test bench for evaluating and comparing TTS providers by ear and by the numbers. Paste a script (or use a built-in "torture test"), play it through ElevenLabs, Cartesia, Deepgram, OpenAI, and Google Gemini, and compare latency, cost, and how each voice handles difficult issues like numbers, acronyms, names, and emphasis. When a voice mispronounces your name or your company's, add the word once and the app applies the fix in whatever format each provider's API supports.
 
 ![AI Voice Torture Test: ElevenLabs, Cartesia, Deepgram, and OpenAI reading the same Homographs test, with a pronunciation fix for "nVidia", each take showing a waveform, speed, and cost](docs/images/takes.jpg)
 
@@ -19,25 +19,25 @@ I've had to evaluate text-to-speech providers more than once, first for podcast 
 
 Voice is fast becoming one of the main ways people experience AI, so I built the tool I kept wishing I had: one script compared across several providers at once, with the measurements next to the audio and a single place to fix pronunciation that works across all of them.
 
-The different voice providers vary in many ways: speed, reliability, quality, cost, etc. In my own runs so far, OpenAI was usually the slowest to start speaking. I also look forward to testing additional providers (Google Cloud, Amazon Polly) and open-source voice models.
+The different voice providers vary in many ways: speed, reliability, quality, cost, etc. In my own runs so far, OpenAI was usually the slowest to start speaking. I also look forward to testing additional providers (Google Cloud Text-to-Speech, Amazon Polly) and open-source voice models.
 
 *Greg Helmstetter: three-time startup cofounder and product leader who has shipped AI-native products, with a background in psychology and an interest in where voice and personality meet.*
 <!-- LINKS: add Substack / LinkedIn when ready -->
 
 ## Features
 
-- **Side-by-side takes** from four providers on the same text, with click-to-seek waveforms.
+- **Side-by-side takes** from five providers on the same text, with click-to-seek waveforms.
 - **Per-take stats:** time to first audio, total time, real-time factor, characters, and estimated cost, with the fastest and cheapest marked.
 - **Eight test presets** aimed at known TTS weak spots: numbers and money, acronyms, homographs, names and brands, URLs and code, emphasis, units and symbols, and long sentences.
 - **Write test text with Claude:** torture tests, natural paragraphs, dialogue, or sentences built around your own problem words.
-- **One pronunciation list, four APIs.** Enter a word with a sounds-like spelling and/or IPA (Claude can suggest the IPA). The app translates it into each provider's mechanism and shows exactly what was sent.
+- **One pronunciation list, five APIs.** Enter a word with a sounds-like spelling and/or IPA (Claude can suggest the IPA). The app translates it into each provider's mechanism and shows exactly what was sent.
 - **Provider tips:** workarounds from each provider's docs for pauses, emphasis, spelling things out, and numbers, with copyable examples.
 - **Public-demo ready:** a free Samples mode with pre-recorded takes (to avoid burning tokens), plus an optional passcode, per-visitor limits, and a daily budget for live generation.
 - **No dependencies.** Plain Node.js; nothing to `npm install`.
 
-### How one pronunciation fix becomes four
+### How one pronunciation fix becomes five
 
-Every provider has its own way of fixing pronunciation, so the app turns one saved dictionary entry (pronunciation overrides) into four different provider-specific instructions. The table below uses Saucony, the running-shoe brand, as the example: it's pronounced "SOCK-uh-nee", but people and TTS voices often say "saw-CONE-ee", which makes this word a good real-world test.
+Every provider has its own way of fixing pronunciation, so the app turns one saved dictionary entry (pronunciation overrides) into five different provider-specific instructions. The table below uses Saucony, the running-shoe brand, as the example: it's pronounced "SOCK-uh-nee", but people and TTS voices often say "saw-CONE-ee", which makes this word a good real-world test.
 
 | Provider | IPA available | Sounds-like only |
 |---|---|---|
@@ -45,6 +45,7 @@ Every provider has its own way of fixing pronunciation, so the app turns one sav
 | **Cartesia** | inline `<<ˈ\|s\|ɑ\|k\|ə\|n\|i>>` | sounds-like spelling |
 | **Deepgram** | inline `\{"word": "Saucony", "pronounce": "ˈsɑkəni"\}` | respelling |
 | **OpenAI** | a line in the `instructions` prompt (gpt-4o-mini-tts) | respelling |
+| **Google Gemini** | a line in the Style prompt | respelling |
 
 ![The Pronunciations panel: saved fixes for nVidia and Saucony, with a chip per provider showing which method each one gets](docs/images/pronunciations.jpg)
 
@@ -75,6 +76,7 @@ Copy `.env.example` to a new file named `.env` and paste in the keys you have. A
 | Cartesia | [play.cartesia.ai](https://play.cartesia.ai) → API Keys | 20K characters/month (non-commercial) |
 | ElevenLabs | [elevenlabs.io](https://elevenlabs.io) → profile → API Keys | ~10K characters/month (attribution required) |
 | OpenAI | [platform.openai.com/api-keys](https://platform.openai.com/api-keys) | none; prepaid credit required |
+| Google Gemini | [aistudio.google.com](https://aistudio.google.com) → Get API key | free tier with rate limits (Google may use free-tier data to improve its products) |
 | Anthropic (Claude) | [platform.claude.com](https://platform.claude.com) → API Keys | none; prepaid credit required |
 
 <sub>*As of October 2026. Check each provider's pricing page.</sub>
@@ -101,7 +103,7 @@ All settings live in `.env` (see `.env.example`):
 
 | Setting | Purpose |
 |---|---|
-| `ELEVENLABS_API_KEY`, `CARTESIA_API_KEY`, `DEEPGRAM_API_KEY`, `OPENAI_API_KEY` | Provider keys. Blank = provider hidden. |
+| `ELEVENLABS_API_KEY`, `CARTESIA_API_KEY`, `DEEPGRAM_API_KEY`, `OPENAI_API_KEY`, `GEMINI_API_KEY` | Provider keys. Blank = provider hidden. |
 | `ANTHROPIC_API_KEY` | Enables "Ask Claude" and "Suggest IPA with Claude". |
 | `ANTHROPIC_WORKSPACE_ID` | Only if Claude says your key "is not scoped to a workspace". |
 | `CLAUDE_MODEL` | Defaults to `claude-haiku-5-5`. |
