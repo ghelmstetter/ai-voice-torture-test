@@ -64,7 +64,7 @@ async function init() {
     const saved = sessionStorage.getItem('sir.pass') || '';
     $('#passcode-row').hidden = false;
     $('#passcode').value = saved;
-    $('#passcode').addEventListener('input', (e) => sessionStorage.setItem('sir.pass', e.target.value));
+    $('#passcode').addEventListener('input', (e) => { sessionStorage.setItem('sir.pass', e.target.value); $('#passcode-error').hidden = true; });
     if (cfg.liveEnabled && !saved) {
       showNotice('<strong>Hosted demo:</strong> Samples are open to everyone. Live generation needs a passcode; if you were given one, choose <strong>Live</strong> and enter it next to <strong>Generate</strong>.', 'info');
       setMode('samples');
@@ -322,6 +322,18 @@ async function run() {
   const text = $('#text').value.trim();
   const ts = targets();
   if (!text || !ts.length) return;
+  if (cfg.passcodeRequired) {
+    const err = $('#passcode-error');
+    try {
+      await api('/api/passcode', {});
+      err.hidden = true;
+    } catch (e) {
+      err.textContent = e.message;
+      err.hidden = false;
+      $('#passcode').focus();
+      return;
+    }
+  }
   const speed = Number($('#speed').value);
   const runs = $('#runs');
   $('.empty', runs)?.remove();

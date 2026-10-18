@@ -182,7 +182,8 @@ textarea#text {
 
 .run-bar { display: flex; justify-content: flex-end; align-items: center; gap: 10px; flex-wrap: wrap; }
 .run-bar .primary { min-width: 180px; }
-.passcode { display: flex; justify-content: flex-end; }
+.passcode { display: flex; justify-content: flex-end; align-items: center; gap: 12px; flex-wrap: wrap; }
+.passcode-error { color: var(--danger); font-size: 14px; }
 .passcode label { display: flex; align-items: center; gap: 8px; }
 .passcode input { width: 160px; }
 

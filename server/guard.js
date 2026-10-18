@@ -21,6 +21,14 @@ export function guardInfo() {
   };
 }
 
+/** Passcode only, without counting toward the daily limits. Returns an error message or null. */
+export function checkPasscode(req) {
+  const pass = process.env.LIVE_PASSCODE;
+  if (!pass) return null;
+  if (!req.headers['x-passcode']) return 'Enter the passcode to generate live audio.';
+  return req.headers['x-passcode'] === pass ? null : 'That passcode isn’t right.';
+}
+
 export function checkLive(req, chars = 0) {
   roll();
   if (process.env.LIVE_MODE === 'off') return 'Live generation is turned off on this server. Listen to the samples instead.';

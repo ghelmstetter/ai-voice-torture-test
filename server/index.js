@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { providers, providerList, isConfigured, keyNames } from './providers/index.js';
 import { synthesize } from './synthesize.js';
 import { generateText, suggestPronunciation } from './claude.js';
-import { guardInfo, checkLive } from './guard.js';
+import { guardInfo, checkLive, checkPasscode } from './guard.js';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'public');
 const PORT = Number(process.env.PORT || 5178);
@@ -83,6 +83,12 @@ const routes = {
         return { provider: p.id, model: t.model, ...p.compile(text, lexicon, { model: t.model, speed: Number(t.speed) || 1 }) };
       }),
     };
+  },
+
+  'POST /api/passcode': async (req) => {
+    const bad = checkPasscode(req);
+    if (bad) throw Object.assign(new Error(bad), { status: 403 });
+    return { ok: true };
   },
 
   'POST /api/synthesize': async (req) => {
