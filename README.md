@@ -4,7 +4,7 @@
 
 AI Voice Torture Test is a small, self-hosted test bench for evaluating and comparing TTS providers by ear and by the numbers. Paste a script (or use a built-in "torture test"), play it through ElevenLabs, Cartesia, Deepgram, OpenAI, and Google Gemini, and compare latency, cost, and how each voice handles difficult issues like numbers, acronyms, names, and emphasis. When a voice mispronounces your name or your company's, add the word once and the app applies the fix in whatever format each provider's API supports.
 
-![AI Voice Torture Test: ElevenLabs, Cartesia, Deepgram, and OpenAI reading the same Homographs test, with a pronunciation fix for "nVidia", each take showing a waveform, speed, and cost](docs/images/takes.jpg)
+![AI Voice Torture Test: ElevenLabs, Cartesia, Deepgram, OpenAI, and Google Gemini reading the same Units and symbols test, each take showing a waveform, speed, and cost](docs/images/takes.jpg)
 
 **[Try the hosted demo →](https://ai-voice-torture-test.vercel.app/)** Listen to every provider read all eight torture tests, with speed and cost for each take. No sign-up or API key needed; to generate your own audio, run it locally (below).
 
@@ -47,7 +47,7 @@ Every provider has its own way of fixing pronunciation, so the app turns one sav
 | **OpenAI** | a line in the `instructions` prompt (gpt-4o-mini-tts) | respelling |
 | **Google Gemini** | a line in the Style prompt | respelling |
 
-![The Pronunciations panel: saved fixes for nVidia and Saucony, with a chip per provider showing which method each one gets](docs/images/pronunciations.jpg)
+![The Pronunciations panel: a saved fix for nVidia with a chip per provider showing which method each one gets, and Saucony being added](docs/images/pronunciations.jpg)
 
 ## Quick start
 

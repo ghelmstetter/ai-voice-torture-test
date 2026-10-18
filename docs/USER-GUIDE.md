@@ -94,7 +94,7 @@ A **Passcode** field appears above Generate only if `LIVE_PASSCODE` is set in `.
 
 ## 4. Takes
 
-![One run with four takes: each shows a waveform, first-audio time, total time, audio length, real-time factor, characters and estimated cost](images/takes.jpg)
+![One run with five takes: each shows a waveform, first-audio time, total time, audio length, real-time factor, characters and estimated cost](images/takes.jpg)
 
 Each **Generate** adds a run at the top: the text, the time and speed, then one card per provider. While a card waits, a light sweeps across it. If a provider fails, its card shows the error; the others still finish.
 
@@ -127,7 +127,7 @@ With two or more takes, **fastest** and **cheapest** badges mark the winners. Ti
 
 ## 5. Pronunciations
 
-![The Pronunciations panel with saved fixes for nVidia and Saucony](images/pronunciations.jpg)
+![The Pronunciations panel: a saved fix for nVidia, with Saucony being added](images/pronunciations.jpg)
 
 For the "it keeps saying my company's name wrong" problem. Open it from **Pronunciations** in the top bar.
 
@@ -191,7 +191,7 @@ Then check **What was sent** and any warnings to see how each provider handled i
 
 ## 7. Samples (pre-recorded takes)
 
-![Samples mode: pre-recorded takes of the Numbers and money preset from all four providers](images/samples.jpg)
+![Samples mode: pre-recorded takes of the Numbers and money preset from all five providers](images/samples.jpg)
 
 **Samples** mode plays a recording of every test preset by every provider, at no cost. It's what visitors to a public copy of the app would use.
 
