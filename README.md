@@ -121,7 +121,7 @@ All settings live in `.env` (see `.env.example`):
 Anyone who clicks **Generate** on a public copy spends your API credit, so:
 
 1. **Record Samples** once with `npm run build-demo` (about 1,700 characters per provider). Visitors can then compare every provider on every preset for free.
-2. **Protect live generation** with `LIVE_MODE=off`, or with `LIVE_PASSCODE` plus `DAILY_REQUESTS_PER_IP` and `DAILY_CHAR_BUDGET`.
+2. **Protect live generation** with `LIVE_MODE=off`, or with `LIVE_PASSCODE` plus `DAILY_REQUESTS_PER_IP` and `DAILY_CHAR_BUDGET`. To give someone live access, send a link ending in `?code=yourpasscode`; it fills in the passcode for them. Change the passcode to turn old links off.
 
 Rate limits are kept in memory and reset when the server restarts. `server/index.js` exports a plain Node `handler(req, res)`, so the app can be wrapped for most hosts.
 

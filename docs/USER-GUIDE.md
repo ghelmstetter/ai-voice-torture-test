@@ -88,7 +88,7 @@ When a provider is on, its row shows:
 
 **Generate N takes · ~$0.00X** runs every switched-on provider at the same time. The cost is an estimate from list prices and character count. (OpenAI's gpt-4o-mini-tts and Google Gemini are priced per audio minute, estimated at about 15 characters per second.)
 
-A **Passcode** field appears above Generate only if `LIVE_PASSCODE` is set in `.env`. On a hosted copy, a link ending in `?code=yourpasscode` fills it in automatically.
+A **Passcode** field appears above Generate only if `LIVE_PASSCODE` is set in `.env`. On a hosted copy, a link ending in `?code=yourpasscode` fills it in automatically. If the passcode is missing or wrong, a message appears next to the field and nothing is generated.
 
 ---
 
