@@ -1007,7 +1007,343 @@
       "applied": [],
       "warnings": [],
       "providerReport": null
+    },
+    {
+      "presetId": "numbers",
+      "file": "clips/numbers-gemini.wav",
+      "recordedAt": "2026-10-17T22:04:48.777Z",
+      "provider": "gemini",
+      "model": "gemini-3.8-flash-tts",
+      "voice": "Kore",
+      "contentType": "audio/wav",
+      "metrics": {
+        "ttfaMs": 7439,
+        "totalMs": 7874,
+        "bytes": 1342538,
+        "inputChars": 157,
+        "sentChars": 157
+      },
+      "price": {
+        "perMin": 0.0135
+      },
+      "sentText": "On 03/04/2025 we closed a $1.5M round at a 12.5% discount: 2,026 shares at $740.25 each. Call 406-555-0142 ext. 3 before 5:30pm MST, or on 1/2 days, by noon.",
+      "sent": {
+        "model": "gemini-3.8-flash-tts",
+        "input": [
+          {
+            "type": "user_input",
+            "content": [
+              {
+                "type": "text",
+                "text": "On 03/04/2025 we closed a $1.5M round at a 12.5% discount: 2,026 shares at $740.25 each. Call 406-555-0142 ext. 3 before 5:30pm MST, or on 1/2 days, by noon."
+              }
+            ]
+          }
+        ],
+        "response_format": {
+          "type": "audio",
+          "mime_type": "audio/wav"
+        },
+        "generation_config": {
+          "speech_config": [
+            {
+              "voice": "Kore"
+            }
+          ]
+        }
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "acronyms",
+      "file": "clips/acronyms-gemini.wav",
+      "recordedAt": "2026-10-17T22:04:54.720Z",
+      "provider": "gemini",
+      "model": "gemini-3.8-flash-tts",
+      "voice": "Kore",
+      "contentType": "audio/wav",
+      "metrics": {
+        "ttfaMs": 5817,
+        "totalMs": 5922,
+        "bytes": 1025098,
+        "inputChars": 171,
+        "sentChars": 171
+      },
+      "price": {
+        "perMin": 0.0135
+      },
+      "sentText": "The CEO asked NASA, the FBI, and a SQL DBA whether GIF rhymes with gift. The IEEE, AWS, and GPT-5 teams stayed quiet. Read the FAQ ASAP, then file the RFP by EOD Thursday.",
+      "sent": {
+        "model": "gemini-3.8-flash-tts",
+        "input": [
+          {
+            "type": "user_input",
+            "content": [
+              {
+                "type": "text",
+                "text": "The CEO asked NASA, the FBI, and a SQL DBA whether GIF rhymes with gift. The IEEE, AWS, and GPT-5 teams stayed quiet. Read the FAQ ASAP, then file the RFP by EOD Thursday."
+              }
+            ]
+          }
+        ],
+        "response_format": {
+          "type": "audio",
+          "mime_type": "audio/wav"
+        },
+        "generation_config": {
+          "speech_config": [
+            {
+              "voice": "Kore"
+            }
+          ]
+        }
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "homographs",
+      "file": "clips/homographs-gemini.wav",
+      "recordedAt": "2026-10-17T22:05:01.023Z",
+      "provider": "gemini",
+      "model": "gemini-3.8-flash-tts",
+      "voice": "Kore",
+      "contentType": "audio/wav",
+      "metrics": {
+        "ttfaMs": 6192,
+        "totalMs": 6292,
+        "bytes": 1096778,
+        "inputChars": 249,
+        "sentChars": 249
+      },
+      "price": {
+        "perMin": 0.0135
+      },
+      "sentText": "I read the lead story yesterday, and I’ll read it again tomorrow. The wind was too strong to wind the sail. She will present the present to the bass player, who keeps a bass in his tank. We must polish the Polish desk before the live show goes live.",
+      "sent": {
+        "model": "gemini-3.8-flash-tts",
+        "input": [
+          {
+            "type": "user_input",
+            "content": [
+              {
+                "type": "text",
+                "text": "I read the lead story yesterday, and I’ll read it again tomorrow. The wind was too strong to wind the sail. She will present the present to the bass player, who keeps a bass in his tank. We must polish the Polish desk before the live show goes live."
+              }
+            ]
+          }
+        ],
+        "response_format": {
+          "type": "audio",
+          "mime_type": "audio/wav"
+        },
+        "generation_config": {
+          "speech_config": [
+            {
+              "voice": "Kore"
+            }
+          ]
+        }
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "names",
+      "file": "clips/names-gemini.wav",
+      "recordedAt": "2026-10-17T22:05:05.911Z",
+      "provider": "gemini",
+      "model": "gemini-3.8-flash-tts",
+      "voice": "Kore",
+      "contentType": "audio/wav",
+      "metrics": {
+        "ttfaMs": 4790,
+        "totalMs": 4877,
+        "bytes": 784458,
+        "inputChars": 196,
+        "sentChars": 196
+      },
+      "price": {
+        "perMin": 0.0135
+      },
+      "sentText": "Siobhan Nguyen and Joaquin Reyes flew from Spokane to Worcester for the Saucony launch. They toasted with Moët, drove a Porsche past the Hermès store, and argued about how to say Xiaomi and Boise.",
+      "sent": {
+        "model": "gemini-3.8-flash-tts",
+        "input": [
+          {
+            "type": "user_input",
+            "content": [
+              {
+                "type": "text",
+                "text": "Siobhan Nguyen and Joaquin Reyes flew from Spokane to Worcester for the Saucony launch. They toasted with Moët, drove a Porsche past the Hermès store, and argued about how to say Xiaomi and Boise."
+              }
+            ]
+          }
+        ],
+        "response_format": {
+          "type": "audio",
+          "mime_type": "audio/wav"
+        },
+        "generation_config": {
+          "speech_config": [
+            {
+              "voice": "Kore"
+            }
+          ]
+        }
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "web",
+      "file": "clips/web-gemini.wav",
+      "recordedAt": "2026-10-17T22:05:15.557Z",
+      "provider": "gemini",
+      "model": "gemini-3.8-flash-tts",
+      "voice": "Kore",
+      "contentType": "audio/wav",
+      "metrics": {
+        "ttfaMs": 9439,
+        "totalMs": 9632,
+        "bytes": 2092618,
+        "inputChars": 170,
+        "sentChars": 170
+      },
+      "price": {
+        "perMin": 0.0135
+      },
+      "sentText": "Email hello@example.com or visit https://docs.example.dev/v2/api?id=42#auth. Then run npm i -D @types/node and cd ~/src && ls -la. Follow @voice_torture_test for updates.",
+      "sent": {
+        "model": "gemini-3.8-flash-tts",
+        "input": [
+          {
+            "type": "user_input",
+            "content": [
+              {
+                "type": "text",
+                "text": "Email hello@example.com or visit https://docs.example.dev/v2/api?id=42#auth. Then run npm i -D @types/node and cd ~/src && ls -la. Follow @voice_torture_test for updates."
+              }
+            ]
+          }
+        ],
+        "response_format": {
+          "type": "audio",
+          "mime_type": "audio/wav"
+        },
+        "generation_config": {
+          "speech_config": [
+            {
+              "voice": "Kore"
+            }
+          ]
+        }
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "emphasis",
+      "file": "clips/emphasis-gemini.wav",
+      "recordedAt": "2026-10-17T22:05:21.309Z",
+      "provider": "gemini",
+      "model": "gemini-3.8-flash-tts",
+      "voice": "Kore",
+      "contentType": "audio/wav",
+      "metrics": {
+        "ttfaMs": 5665,
+        "totalMs": 5739,
+        "bytes": 1022538,
+        "inputChars": 156,
+        "sentChars": 156
+      },
+      "price": {
+        "perMin": 0.0135
+      },
+      "sentText": "I didn’t say she stole the money. I didn’t say SHE stole the money. Wait... you’re serious? Really?! Okay — fine. (Quietly) Let’s never speak of this again.",
+      "sent": {
+        "model": "gemini-3.8-flash-tts",
+        "input": [
+          {
+            "type": "user_input",
+            "content": [
+              {
+                "type": "text",
+                "text": "I didn’t say she stole the money. I didn’t say SHE stole the money. Wait... you’re serious? Really?! Okay — fine. (Quietly) Let’s never speak of this again."
+              }
+            ]
+          }
+        ],
+        "response_format": {
+          "type": "audio",
+          "mime_type": "audio/wav"
+        },
+        "generation_config": {
+          "speech_config": [
+            {
+              "voice": "Kore"
+            }
+          ]
+        }
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "longform",
+      "file": "clips/longform-gemini.wav",
+      "recordedAt": "2026-10-17T22:05:36.294Z",
+      "provider": "gemini",
+      "model": "gemini-3.8-flash-tts",
+      "voice": "Kore",
+      "contentType": "audio/wav",
+      "metrics": {
+        "ttfaMs": 6969,
+        "totalMs": 7085,
+        "bytes": 1339978,
+        "inputChars": 322,
+        "sentChars": 322
+      },
+      "price": {
+        "perMin": 0.0135
+      },
+      "sentText": "If you have ever tried to explain to a room full of tired engineers, at the end of a long Friday, why the dashboard that everyone had agreed was finished on Tuesday now needs a completely different layout because a single customer asked a single question during a single demo, you already know exactly how this story ends.",
+      "sent": {
+        "model": "gemini-3.8-flash-tts",
+        "input": [
+          {
+            "type": "user_input",
+            "content": [
+              {
+                "type": "text",
+                "text": "If you have ever tried to explain to a room full of tired engineers, at the end of a long Friday, why the dashboard that everyone had agreed was finished on Tuesday now needs a completely different layout because a single customer asked a single question during a single demo, you already know exactly how this story ends."
+              }
+            ]
+          }
+        ],
+        "response_format": {
+          "type": "audio",
+          "mime_type": "audio/wav"
+        },
+        "generation_config": {
+          "speech_config": [
+            {
+              "voice": "Kore"
+            }
+          ]
+        }
+      },
+      "applied": [],
+      "warnings": [],
+      "providerReport": null
     }
   ],
-  "updatedAt": "2026-10-16T20:10:51.431Z"
+  "updatedAt": "2026-10-17T22:05:36.296Z"
 }

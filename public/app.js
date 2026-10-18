@@ -54,9 +54,21 @@ async function init() {
     showNotice('No API keys found. Copy <code>.env.example</code> to <code>.env</code>, add at least one provider key, then restart the server.');
   }
   if (cfg.passcodeRequired) {
+    // A shared link can carry the passcode (?code=…); remember it for this tab, then hide it from the address bar.
+    const params = new URLSearchParams(location.search);
+    if (params.get('code')) {
+      sessionStorage.setItem('sir.pass', params.get('code'));
+      params.delete('code');
+      history.replaceState(null, '', location.pathname + (params.toString() ? `?${params}` : '') + location.hash);
+    }
+    const saved = sessionStorage.getItem('sir.pass') || '';
     $('#passcode-row').hidden = false;
-    $('#passcode').value = sessionStorage.getItem('sir.pass') || '';
+    $('#passcode').value = saved;
     $('#passcode').addEventListener('input', (e) => sessionStorage.setItem('sir.pass', e.target.value));
+    if (cfg.liveEnabled && !saved) {
+      showNotice('<strong>Hosted demo:</strong> Samples are open to everyone. Live generation needs a passcode; if you were given one, choose <strong>Live</strong> and enter it next to <strong>Generate</strong>.', 'info');
+      setMode('samples');
+    }
   }
   if (!cfg.liveEnabled) {
     $('#mode-live').disabled = true;

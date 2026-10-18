@@ -11,7 +11,7 @@
     "type": "git",
     "url": "https://github.com/ghelmstetter/ai-voice-torture-test.git"
   },
-  "keywords": ["text-to-speech", "tts", "voice", "pronunciation", "elevenlabs", "cartesia", "deepgram", "openai", "ipa", "ssml"],
+  "keywords": ["text-to-speech", "tts", "voice", "pronunciation", "elevenlabs", "cartesia", "deepgram", "openai", "gemini", "ipa", "ssml"],
   "engines": {
     "node": ">=20.12"
   },

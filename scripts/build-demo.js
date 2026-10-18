@@ -27,6 +27,7 @@ const lineup = {
   cartesia: { model: 'sonic-3.6', voice: process.env.CARTESIA_DEMO_VOICE || 'db6b0ed5-d5d3-463d-ae85-518a07d3c2b4' },
   deepgram: { model: 'aura-2', voice: 'aura-2-thalia-en' },
   openai: { model: 'gpt-4o-mini-tts', voice: 'marin' },
+  gemini: { model: 'gemini-3.8-flash-tts', voice: 'Kore' },
   mock: { model: 'tone-1', voice: 'hum' },
 };
 
