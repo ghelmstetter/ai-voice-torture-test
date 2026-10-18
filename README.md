@@ -180,7 +180,7 @@ Ideas for turning this hands-on test bench into a more complete evaluation tool:
 
 ## Contributing
 
-Issues and pull requests are welcome, especially new providers, better test presets, and corrections to the provider tips. Please keep the app dependency-free.
+This is a personal project, shared as-is. Bug reports and suggestions are welcome as issues; I may not be able to review pull requests promptly.
 
 ## Credits
 
