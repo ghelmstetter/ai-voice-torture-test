@@ -49,7 +49,11 @@ button, input, select, textarea { font: inherit; color: inherit; }
   line-height: 0.95;
   font-variation-settings: 'opsz' 96;
 }
-.brand p { margin: 10px 0 0; color: var(--muted); }
+.brand p { margin: 0; color: var(--muted); }
+.tagline-row { display: flex; align-items: baseline; flex-wrap: wrap; column-gap: 40px; row-gap: 6px; margin-top: 10px; }
+.brand-links { display: flex; gap: 18px; }
+.brand-links a { color: var(--text); font-weight: 500; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
+.brand-links a:hover { text-decoration-color: var(--text); }
 .masthead-tools { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
 
 /* ---------- Controls ---------- */
