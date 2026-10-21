@@ -19,10 +19,10 @@ I've had to evaluate text-to-speech providers more than once, first for podcast 
 
 Voice is fast becoming one of the main ways people experience AI, so I built the tool I kept wishing I had: one script compared across several providers at once, with the measurements next to the audio and a single place to fix pronunciation that works across all of them.
 
-The different voice providers vary in many ways: speed, reliability, quality, cost, etc. In my own runs so far, OpenAI was usually the slowest to start speaking. I also look forward to testing additional providers (Google Cloud Text-to-Speech, Amazon Polly) and open-source voice models.
+The different voice providers vary in many ways: speed, reliability, quality, cost, etc. In my own runs so far, Gemini and ElevenLabs were the slowest to start speaking, partly because my setup waits for their whole file rather than streaming it. I also look forward to testing additional providers (Google Cloud Text-to-Speech, Amazon Polly) and open-source voice models.
 
 *Greg Helmstetter: three-time startup cofounder and product leader who has shipped AI-native products, with a background in psychology and an interest in where voice and personality meet.*
-<!-- LINKS: add Substack / LinkedIn when ready -->
+Read the write-up: [I built a torture test for AI voices](https://ghelmstetter.substack.com/p/i-built-a-torture-test-for-ai-voices) on *Hidden States*.
 
 ## Features
 
