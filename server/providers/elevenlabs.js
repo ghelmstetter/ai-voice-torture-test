@@ -1,4 +1,5 @@
 import { timedFetch, compileLexicon, cleanIpa } from './util.js';
+import { removed } from '../cues.js';
 
 const API = 'https://api.elevenlabs.io/v1';
 
@@ -8,6 +9,9 @@ const PHONEME_TAG_MODELS = new Set(['eleven_flash_v2', 'eleven_turbo_v2', 'eleve
 const INLINE_IPA_MODELS = (m) => m.startsWith('eleven_v4');
 // Models that accept <break time="1s"/> (not v3/v4).
 const BREAK_TAG_MODELS = (m) => !m.startsWith('eleven_v3') && !m.startsWith('eleven_v4');
+// Models that read audio tags like [laughs] (v3 and v4).
+const AUDIO_TAG_MODELS = (m) => m.startsWith('eleven_v3') || m.startsWith('eleven_v4');
+const AUDIO_TAGS = { laugh: '[laughs]', sigh: '[sighs]', breath: '[inhales deeply]', gasp: '[gasps]', pause: '[short pause]', longPause: '[long pause]', whisper: '[whispers]' };
 
 export default {
   id: 'elevenlabs',
@@ -33,6 +37,9 @@ export default {
   ],
   speed: { min: 0.7, max: 1.2, step: 0.05 },
   options: [],
+  // The app suggests switching to cueUpgrade when the text has cues and the model isn't in cueModels.
+  cueModels: ['eleven_v4', 'eleven_v3'],
+  cueUpgrade: 'eleven_v4',
 
   async listVoices(key) {
     const res = await fetch(`${API}/voices`, { headers: { 'xi-api-key': key } });
@@ -64,6 +71,19 @@ export default {
     return { ...result, warnings };
   },
 
+  cueHow: 'Eleven v3/v4: audio tags such as [laughs], [sighs] and [whispers]; other bracket tags pass through. Older models: <break> tags for pauses, other cues removed.',
+
+  cueRule(cue, { tag }, model) {
+    if (AUDIO_TAG_MODELS(model)) {
+      if (cue === 'unknown') return { out: tag, method: 'passed through', note: 'Sent as an audio tag; results vary by voice.' };
+      if (cue === 'endWhisper') return removed('Audio tags have no closing tag; the whisper may run to the end of the sentence.');
+      return { out: AUDIO_TAGS[cue], method: 'audio tag' };
+    }
+    if (cue === 'pause') return { out: '<break time="0.6s" />', method: '<break> tag' };
+    if (cue === 'longPause') return { out: '<break time="1.5s" />', method: '<break> tag' };
+    return removed('This model doesn’t read audio tags. Switch to Eleven v3 or v4.');
+  },
+
   async synthesize({ key, text, model, voice, speed }) {
     const body = { text, model_id: model };
     if (speed && speed !== 1) body.voice_settings = { speed };
@@ -83,6 +103,8 @@ export default {
     { title: 'Pronunciation dictionaries', body: 'Upload a .pls or TXT file of phoneme/alias rules and reference it per request. Matching is case-sensitive and only the first matching rule applies.' },
     { title: 'Pauses', body: '<break time="1.5s" /> works up to 3 s on older models, but too many cause speed-ups and artifacts. v3/v4 ignore breaks; use ellipses (…) or dashes instead.', example: '"Hold on." <break time="1.5s" /> "Got it."' },
     { title: 'Emphasis and emotion', body: 'CAPITALS add stress, ellipses add weight. On v3/v4, audio tags steer delivery. Tags that describe a voice quality are less likely to be read aloud.', example: '[whispers] I never knew it could be this way.' },
+    { title: 'Laughs, sighs and breaths', body: 'On v3 and v4, audio tags make nonverbal sounds: [laughs], [chuckles], [sighs], [exhales], [inhales deeply], [clears throat], [gasps]. They work best when the voice has that sound in its training data, so test with your voice. Multilingual v2 and Flash ignore them.', example: 'It was a disaster. [laughs] Honestly? [sighs] I give up.' },
+    { title: 'Fillers and hesitation', body: 'Type “um” and “uh” as plain words, and use ellipses for a hesitant pause. Voices trained on filler sounds handle them more naturally.', example: 'So, um… I was thinking — uh — maybe not.' },
     { title: 'Numbers and normalization', body: 'Text normalization is on by default. Multilingual v2 reads "$1,000,000" better than Flash v2.5. For low latency, write numbers out yourself or have an LLM normalize first.' },
   ],
 };

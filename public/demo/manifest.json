@@ -1391,7 +1391,697 @@
       "applied": [],
       "warnings": [],
       "providerReport": null
+    },
+    {
+      "presetId": "disfluency",
+      "file": "clips/disfluency-elevenlabs.mp3",
+      "recordedAt": "2026-11-03T06:26:58.636Z",
+      "provider": "elevenlabs",
+      "model": "eleven_multilingual_v2",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 1488,
+        "totalMs": 1670,
+        "bytes": 262940,
+        "inputChars": 209,
+        "sentChars": 209
+      },
+      "price": {
+        "per1k": 0.08
+      },
+      "sentText": "So, um, I was gonna call you yesterday, but — uh — I-I kind of forgot. Wait, no, that’s not… okay, I didn’t forget. I just, you know, didn’t want to. Hmm. Anyway! Where were we? Oh, right, the, uh, the budget.",
+      "sent": {
+        "text": "So, um, I was gonna call you yesterday, but — uh — I-I kind of forgot. Wait, no, that’s not… okay, I didn’t forget. I just, you know, didn’t want to. Hmm. Anyway! Where were we? Oh, right, the, uh, the budget.",
+        "model_id": "eleven_multilingual_v2"
+      },
+      "applied": [],
+      "cues": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "disfluency",
+      "file": "clips/disfluency-cartesia.mp3",
+      "recordedAt": "2026-11-03T06:27:00.571Z",
+      "provider": "cartesia",
+      "model": "sonic-3.6",
+      "voice": "db6b0ed5-d5d3-463d-ae85-518a07d3c2b4",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 372,
+        "totalMs": 1927,
+        "bytes": 306409,
+        "inputChars": 209,
+        "sentChars": 209
+      },
+      "price": {
+        "per1k": 0.05
+      },
+      "sentText": "So, um, I was gonna call you yesterday, but — uh — I-I kind of forgot. Wait, no, that’s not… okay, I didn’t forget. I just, you know, didn’t want to. Hmm. Anyway! Where were we? Oh, right, the, uh, the budget.",
+      "sent": {
+        "model_id": "sonic-3.6",
+        "transcript": "So, um, I was gonna call you yesterday, but — uh — I-I kind of forgot. Wait, no, that’s not… okay, I didn’t forget. I just, you know, didn’t want to. Hmm. Anyway! Where were we? Oh, right, the, uh, the budget.",
+        "voice": {
+          "id": "db6b0ed5-d5d3-463d-ae85-518a07d3c2b4"
+        },
+        "language": "en",
+        "output_format": {
+          "container": "mp3",
+          "sample_rate": 44100,
+          "bit_rate": 128000
+        }
+      },
+      "applied": [],
+      "cues": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "disfluency",
+      "file": "clips/disfluency-deepgram.mp3",
+      "recordedAt": "2026-11-03T06:27:09.873Z",
+      "provider": "deepgram",
+      "model": "aura-2",
+      "voice": "aura-2-thalia-en",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 383,
+        "totalMs": 9297,
+        "bytes": 120816,
+        "inputChars": 209,
+        "sentChars": 209
+      },
+      "price": {
+        "per1k": 0.03
+      },
+      "sentText": "So, um, I was gonna call you yesterday, but — uh — I-I kind of forgot. Wait, no, that’s not… okay, I didn’t forget. I just, you know, didn’t want to. Hmm. Anyway! Where were we? Oh, right, the, uh, the budget.",
+      "sent": {
+        "query": {
+          "model": "aura-2-thalia-en",
+          "encoding": "mp3"
+        },
+        "text": "So, um, I was gonna call you yesterday, but — uh — I-I kind of forgot. Wait, no, that’s not… okay, I didn’t forget. I just, you know, didn’t want to. Hmm. Anyway! Where were we? Oh, right, the, uh, the budget."
+      },
+      "applied": [],
+      "cues": [],
+      "warnings": [],
+      "providerReport": {
+        "dg-pronunciations-applied": "0",
+        "dg-breaks-applied": "0",
+        "dg-char-count": "209"
+      }
+    },
+    {
+      "presetId": "disfluency",
+      "file": "clips/disfluency-openai.mp3",
+      "recordedAt": "2026-11-03T06:27:13.620Z",
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 1557,
+        "totalMs": 3743,
+        "bytes": 293760,
+        "inputChars": 209,
+        "sentChars": 209
+      },
+      "price": {
+        "perMin": 0.015
+      },
+      "sentText": "So, um, I was gonna call you yesterday, but — uh — I-I kind of forgot. Wait, no, that’s not… okay, I didn’t forget. I just, you know, didn’t want to. Hmm. Anyway! Where were we? Oh, right, the, uh, the budget.",
+      "sent": {
+        "model": "gpt-4o-mini-tts",
+        "voice": "marin",
+        "input": "So, um, I was gonna call you yesterday, but — uh — I-I kind of forgot. Wait, no, that’s not… okay, I didn’t forget. I just, you know, didn’t want to. Hmm. Anyway! Where were we? Oh, right, the, uh, the budget.",
+        "response_format": "mp3"
+      },
+      "applied": [],
+      "cues": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "disfluency",
+      "file": "clips/disfluency-gemini.wav",
+      "recordedAt": "2026-11-03T06:27:20.196Z",
+      "provider": "gemini",
+      "model": "gemini-3.8-flash-tts",
+      "voice": "Kore",
+      "contentType": "audio/wav",
+      "metrics": {
+        "ttfaMs": 6180,
+        "totalMs": 6457,
+        "bytes": 1268324,
+        "inputChars": 209,
+        "sentChars": 209
+      },
+      "price": {
+        "perMin": 0.0135
+      },
+      "sentText": "So, um, I was gonna call you yesterday, but — uh — I-I kind of forgot. Wait, no, that’s not… okay, I didn’t forget. I just, you know, didn’t want to. Hmm. Anyway! Where were we? Oh, right, the, uh, the budget.",
+      "sent": {
+        "model": "gemini-3.8-flash-tts",
+        "input": [
+          {
+            "type": "user_input",
+            "content": [
+              {
+                "type": "text",
+                "text": "So, um, I was gonna call you yesterday, but — uh — I-I kind of forgot. Wait, no, that’s not… okay, I didn’t forget. I just, you know, didn’t want to. Hmm. Anyway! Where were we? Oh, right, the, uh, the budget."
+              }
+            ]
+          }
+        ],
+        "response_format": {
+          "type": "audio",
+          "mime_type": "audio/wav"
+        },
+        "generation_config": {
+          "speech_config": [
+            {
+              "voice": "Kore"
+            }
+          ]
+        }
+      },
+      "applied": [],
+      "cues": [],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "vocalics",
+      "file": "clips/vocalics-elevenlabs.mp3",
+      "recordedAt": "2026-11-03T06:27:25.001Z",
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 743,
+        "totalMs": 4796,
+        "bytes": 290107,
+        "inputChars": 267,
+        "sentChars": 274
+      },
+      "price": {
+        "per1k": 0.08
+      },
+      "sentText": "[sighs] Okay, here’s the thing. [short pause] I tried the new recipe. [laughs] It was a disaster. [inhales deeply] The smoke alarm went off twice, and the dog — [gasps] wait, is that him now? [whispers] Don’t tell anyone I ordered pizza. [long pause] Anyway, dinner’s ready!",
+      "sent": {
+        "text": "[sighs] Okay, here’s the thing. [short pause] I tried the new recipe. [laughs] It was a disaster. [inhales deeply] The smoke alarm went off twice, and the dog — [gasps] wait, is that him now? [whispers] Don’t tell anyone I ordered pizza. [long pause] Anyway, dinner’s ready!",
+        "model_id": "eleven_v4"
+      },
+      "applied": [],
+      "cues": [
+        {
+          "tag": "[sigh]",
+          "cue": "sigh",
+          "method": "audio tag",
+          "sent": "[sighs]",
+          "note": null,
+          "count": 1
+        },
+        {
+          "tag": "[pause]",
+          "cue": "pause",
+          "method": "audio tag",
+          "sent": "[short pause]",
+          "note": null,
+          "count": 1
+        },
+        {
+          "tag": "[laugh]",
+          "cue": "laugh",
+          "method": "audio tag",
+          "sent": "[laughs]",
+          "note": null,
+          "count": 1
+        },
+        {
+          "tag": "[breath]",
+          "cue": "breath",
+          "method": "audio tag",
+          "sent": "[inhales deeply]",
+          "note": null,
+          "count": 1
+        },
+        {
+          "tag": "[gasp]",
+          "cue": "gasp",
+          "method": "audio tag",
+          "sent": "[gasps]",
+          "note": null,
+          "count": 1
+        },
+        {
+          "tag": "[whisper]",
+          "cue": "whisper",
+          "method": "audio tag",
+          "sent": "[whispers]",
+          "note": null,
+          "count": 1
+        },
+        {
+          "tag": "[/whisper]",
+          "cue": "endWhisper",
+          "method": "removed",
+          "sent": "",
+          "note": "Audio tags have no closing tag; the whisper may run to the end of the sentence.",
+          "count": 1
+        },
+        {
+          "tag": "[long pause]",
+          "cue": "longPause",
+          "method": "audio tag",
+          "sent": "[long pause]",
+          "note": null,
+          "count": 1
+        }
+      ],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "vocalics",
+      "file": "clips/vocalics-cartesia.mp3",
+      "recordedAt": "2026-11-03T06:27:26.558Z",
+      "provider": "cartesia",
+      "model": "sonic-3.6",
+      "voice": "db6b0ed5-d5d3-463d-ae85-518a07d3c2b4",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 253,
+        "totalMs": 1552,
+        "bytes": 250402,
+        "inputChars": 267,
+        "sentChars": 292
+      },
+      "price": {
+        "per1k": 0.05
+      },
+      "sentText": "Okay, here’s the thing. <break time=\"600ms\"/> I tried the new recipe. [laughter] It was a disaster. The smoke alarm went off twice, and the dog — wait, is that him now? <volume ratio=\"0.5\"/> Don’t tell anyone I ordered pizza. <volume ratio=\"1\"/> <break time=\"1500ms\"/> Anyway, dinner’s ready!",
+      "sent": {
+        "model_id": "sonic-3.6",
+        "transcript": "Okay, here’s the thing. <break time=\"600ms\"/> I tried the new recipe. [laughter] It was a disaster. The smoke alarm went off twice, and the dog — wait, is that him now? <volume ratio=\"0.5\"/> Don’t tell anyone I ordered pizza. <volume ratio=\"1\"/> <break time=\"1500ms\"/> Anyway, dinner’s ready!",
+        "voice": {
+          "id": "db6b0ed5-d5d3-463d-ae85-518a07d3c2b4"
+        },
+        "language": "en",
+        "output_format": {
+          "container": "mp3",
+          "sample_rate": 44100,
+          "bit_rate": 128000
+        }
+      },
+      "applied": [],
+      "cues": [
+        {
+          "tag": "[sigh]",
+          "cue": "sigh",
+          "method": "removed",
+          "sent": "",
+          "note": "Cartesia documents only laughter as a nonverbal sound.",
+          "count": 1
+        },
+        {
+          "tag": "[pause]",
+          "cue": "pause",
+          "method": "<break> tag",
+          "sent": "<break time=\"600ms\"/>",
+          "note": null,
+          "count": 1
+        },
+        {
+          "tag": "[laugh]",
+          "cue": "laugh",
+          "method": "laughter tag",
+          "sent": "[laughter]",
+          "note": null,
+          "count": 1
+        },
+        {
+          "tag": "[breath]",
+          "cue": "breath",
+          "method": "removed",
+          "sent": "",
+          "note": "Cartesia documents only laughter as a nonverbal sound.",
+          "count": 1
+        },
+        {
+          "tag": "[gasp]",
+          "cue": "gasp",
+          "method": "removed",
+          "sent": "",
+          "note": "Cartesia documents only laughter as a nonverbal sound.",
+          "count": 1
+        },
+        {
+          "tag": "[whisper]",
+          "cue": "whisper",
+          "method": "quieter (stand-in)",
+          "sent": "<volume ratio=\"0.5\"/>",
+          "note": "No whisper control; volume is lowered instead.",
+          "count": 1
+        },
+        {
+          "tag": "[/whisper]",
+          "cue": "endWhisper",
+          "method": "volume reset",
+          "sent": "<volume ratio=\"1\"/>",
+          "note": null,
+          "count": 1
+        },
+        {
+          "tag": "[long pause]",
+          "cue": "longPause",
+          "method": "<break> tag",
+          "sent": "<break time=\"1500ms\"/>",
+          "note": null,
+          "count": 1
+        }
+      ],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "vocalics",
+      "file": "clips/vocalics-deepgram.mp3",
+      "recordedAt": "2026-11-03T06:27:33.117Z",
+      "provider": "deepgram",
+      "model": "aura-2",
+      "voice": "aura-2-thalia-en",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 332,
+        "totalMs": 6554,
+        "bytes": 81504,
+        "inputChars": 267,
+        "sentChars": 205
+      },
+      "price": {
+        "per1k": 0.03
+      },
+      "sentText": "Okay, here’s the thing. ... I tried the new recipe. It was a disaster. The smoke alarm went off twice, and the dog — wait, is that him now? Don’t tell anyone I ordered pizza. ...... Anyway, dinner’s ready!",
+      "sent": {
+        "query": {
+          "model": "aura-2-thalia-en",
+          "encoding": "mp3"
+        },
+        "text": "Okay, here’s the thing. ... I tried the new recipe. It was a disaster. The smoke alarm went off twice, and the dog — wait, is that him now? Don’t tell anyone I ordered pizza. ...... Anyway, dinner’s ready!"
+      },
+      "applied": [],
+      "cues": [
+        {
+          "tag": "[sigh]",
+          "cue": "sigh",
+          "method": "removed",
+          "sent": "",
+          "note": "Aura-2 has no control for this sound.",
+          "count": 1
+        },
+        {
+          "tag": "[pause]",
+          "cue": "pause",
+          "method": "ellipsis",
+          "sent": "...",
+          "note": null,
+          "count": 1
+        },
+        {
+          "tag": "[laugh]",
+          "cue": "laugh",
+          "method": "removed",
+          "sent": "",
+          "note": "Aura-2 has no control for this sound.",
+          "count": 1
+        },
+        {
+          "tag": "[breath]",
+          "cue": "breath",
+          "method": "removed",
+          "sent": "",
+          "note": "Aura-2 has no control for this sound.",
+          "count": 1
+        },
+        {
+          "tag": "[gasp]",
+          "cue": "gasp",
+          "method": "removed",
+          "sent": "",
+          "note": "Aura-2 has no control for this sound.",
+          "count": 1
+        },
+        {
+          "tag": "[whisper]",
+          "cue": "whisper",
+          "method": "removed",
+          "sent": "",
+          "note": "Aura-2 has no control for this sound.",
+          "count": 1
+        },
+        {
+          "tag": "[/whisper]",
+          "cue": "endWhisper",
+          "method": "removed",
+          "sent": "",
+          "note": "Aura-2 has no control for this sound.",
+          "count": 1
+        },
+        {
+          "tag": "[long pause]",
+          "cue": "longPause",
+          "method": "ellipsis ×2",
+          "sent": "......",
+          "note": null,
+          "count": 1
+        }
+      ],
+      "warnings": [],
+      "providerReport": {
+        "dg-pronunciations-applied": "0",
+        "dg-breaks-applied": "0",
+        "dg-char-count": "205"
+      }
+    },
+    {
+      "presetId": "vocalics",
+      "file": "clips/vocalics-openai.mp3",
+      "recordedAt": "2026-11-03T06:27:36.201Z",
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "contentType": "audio/mpeg",
+      "metrics": {
+        "ttfaMs": 1569,
+        "totalMs": 3078,
+        "bytes": 236928,
+        "inputChars": 267,
+        "sentChars": 200
+      },
+      "price": {
+        "perMin": 0.015
+      },
+      "sentText": "Okay, here’s the thing. … I tried the new recipe. It was a disaster. The smoke alarm went off twice, and the dog — wait, is that him now? Don’t tell anyone I ordered pizza. … … Anyway, dinner’s ready!",
+      "sent": {
+        "model": "gpt-4o-mini-tts",
+        "voice": "marin",
+        "input": "Okay, here’s the thing. … I tried the new recipe. It was a disaster. The smoke alarm went off twice, and the dog — wait, is that him now? Don’t tell anyone I ordered pizza. … … Anyway, dinner’s ready!",
+        "response_format": "mp3",
+        "instructions": "Sigh audibly at the very start. Laugh briefly right after \"I tried the new recipe.\". Take an audible breath right after \"recipe. It was a disaster.\". Gasp right after \"twice, and the dog —\". Whisper the words \"Don’t tell anyone I ordered pizza.\". Return to your normal speaking voice right after \"tell anyone I ordered pizza.\"."
+      },
+      "applied": [],
+      "cues": [
+        {
+          "tag": "[sigh]",
+          "cue": "sigh",
+          "method": "instructions",
+          "sent": "",
+          "note": null,
+          "count": 1
+        },
+        {
+          "tag": "[pause]",
+          "cue": "pause",
+          "method": "ellipsis",
+          "sent": "…",
+          "note": null,
+          "count": 1
+        },
+        {
+          "tag": "[laugh]",
+          "cue": "laugh",
+          "method": "instructions",
+          "sent": "",
+          "note": null,
+          "count": 1
+        },
+        {
+          "tag": "[breath]",
+          "cue": "breath",
+          "method": "instructions",
+          "sent": "",
+          "note": null,
+          "count": 1
+        },
+        {
+          "tag": "[gasp]",
+          "cue": "gasp",
+          "method": "instructions",
+          "sent": "",
+          "note": null,
+          "count": 1
+        },
+        {
+          "tag": "[whisper]",
+          "cue": "whisper",
+          "method": "instructions",
+          "sent": "",
+          "note": null,
+          "count": 1
+        },
+        {
+          "tag": "[/whisper]",
+          "cue": "endWhisper",
+          "method": "instructions",
+          "sent": "",
+          "note": null,
+          "count": 1
+        },
+        {
+          "tag": "[long pause]",
+          "cue": "longPause",
+          "method": "ellipsis ×2",
+          "sent": "… …",
+          "note": null,
+          "count": 1
+        }
+      ],
+      "warnings": [],
+      "providerReport": null
+    },
+    {
+      "presetId": "vocalics",
+      "file": "clips/vocalics-gemini.wav",
+      "recordedAt": "2026-11-03T06:27:41.841Z",
+      "provider": "gemini",
+      "model": "gemini-3.8-flash-tts",
+      "voice": "Kore",
+      "contentType": "audio/wav",
+      "metrics": {
+        "ttfaMs": 5351,
+        "totalMs": 5622,
+        "bytes": 1050725,
+        "inputChars": 267,
+        "sentChars": 252
+      },
+      "price": {
+        "perMin": 0.0135
+      },
+      "sentText": "<sigh> Okay, here’s the thing. <short pause> I tried the new recipe. <laugh> It was a disaster. <breath> The smoke alarm went off twice, and the dog — <gasp> wait, is that him now? Don’t tell anyone I ordered pizza. <long pause> Anyway, dinner’s ready!",
+      "sent": {
+        "model": "gemini-3.8-flash-tts",
+        "input": [
+          {
+            "type": "user_input",
+            "content": [
+              {
+                "type": "text",
+                "text": "<sigh> Okay, here’s the thing. <short pause> I tried the new recipe. <laugh> It was a disaster. <breath> The smoke alarm went off twice, and the dog — <gasp> wait, is that him now? Don’t tell anyone I ordered pizza. <long pause> Anyway, dinner’s ready!",
+                "annotations": [
+                  {
+                    "type": "speech_metadata",
+                    "style": "Speak in your normal voice throughout. Whisper only the words \"Don’t tell anyone I ordered pizza.\", then go straight back to your normal voice."
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "response_format": {
+          "type": "audio",
+          "mime_type": "audio/wav"
+        },
+        "generation_config": {
+          "speech_config": [
+            {
+              "voice": "Kore"
+            }
+          ]
+        }
+      },
+      "applied": [],
+      "cues": [
+        {
+          "tag": "[sigh]",
+          "cue": "sigh",
+          "method": "audio tag",
+          "sent": "<sigh>",
+          "note": null,
+          "count": 1
+        },
+        {
+          "tag": "[pause]",
+          "cue": "pause",
+          "method": "audio tag",
+          "sent": "<short pause>",
+          "note": null,
+          "count": 1
+        },
+        {
+          "tag": "[laugh]",
+          "cue": "laugh",
+          "method": "audio tag",
+          "sent": "<laugh>",
+          "note": null,
+          "count": 1
+        },
+        {
+          "tag": "[breath]",
+          "cue": "breath",
+          "method": "audio tag",
+          "sent": "<breath>",
+          "note": null,
+          "count": 1
+        },
+        {
+          "tag": "[gasp]",
+          "cue": "gasp",
+          "method": "audio tag",
+          "sent": "<gasp>",
+          "note": null,
+          "count": 1
+        },
+        {
+          "tag": "[whisper]",
+          "cue": "whisper",
+          "method": "style prompt",
+          "sent": "",
+          "note": null,
+          "count": 1
+        },
+        {
+          "tag": "[/whisper]",
+          "cue": "endWhisper",
+          "method": "style prompt",
+          "sent": "",
+          "note": "Covered by the whisper instruction in Style.",
+          "count": 1
+        },
+        {
+          "tag": "[long pause]",
+          "cue": "longPause",
+          "method": "audio tag",
+          "sent": "<long pause>",
+          "note": null,
+          "count": 1
+        }
+      ],
+      "warnings": [],
+      "providerReport": null
     }
   ],
-  "updatedAt": "2026-10-18T18:30:52.186Z"
+  "updatedAt": "2026-11-03T06:27:41.842Z"
 }

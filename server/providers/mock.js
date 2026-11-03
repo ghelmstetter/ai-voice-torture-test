@@ -39,6 +39,11 @@ export default {
   compile(text, lexicon) {
     return { ...compileLexicon(text, lexicon, (e) => (e.soundsLike ? { replacement: e.soundsLike, method: 'respelling' } : { skip: 'No sounds-like spelling.' })), warnings: [] };
   },
+  cueHow: 'Pauses become ellipses; everything else is removed.',
+  cueRule(cue) {
+    if (cue === 'pause' || cue === 'longPause') return { out: '…', method: 'ellipsis' };
+    return { out: '', method: 'removed', note: 'The test tone can’t make sounds.' };
+  },
   async synthesize({ text }) {
     const t0 = performance.now();
     await new Promise((r) => setTimeout(r, 120 + Math.random() * 200));

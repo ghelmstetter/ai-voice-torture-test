@@ -33,7 +33,7 @@ The left panel sets what the voices will say. **The large text box is always wha
 
 **Write**: type or paste anything. You can also edit whatever a preset, Claude or a file puts in the box.
 
-**Test presets**: eight passages, each aimed at a known weak spot of TTS models:
+**Test presets**: ten passages, each aimed at a known weak spot of TTS models:
 
 | Preset | What it checks |
 |---|---|
@@ -45,6 +45,8 @@ The left panel sets what the voices will say. **The large text box is always wha
 | Emphasis and tone | "I didn't say SHE stole it", "Wait... you're serious?", "(Quietly)" |
 | Units and symbols | 3/4 cup, 350°F, 25–30 min, ±0.5 mm, CO₂, 22nd |
 | Long sentence | breath, pacing and pitch across one very long sentence |
+| Disfluency | fillers (um, uh, hmm), false starts, "I-I", self-corrections, trailing off |
+| Vocalics | laughs, sighs, breaths, a gasp, pauses and a whispered aside, written as vocal cues |
 
 Clicking a card loads its text. The card stays outlined until you edit the text.
 
@@ -58,6 +60,23 @@ Clicking a card loads its text. The card stays outlined until you edit the text.
 **Below the box:**
 - **Character count**: turns red past the limit (1,500 by default; change with `MAX_TEXT_CHARS` in `.env`). Cost scales with characters.
 - **Pronunciation fixes in use**: chips for saved pronunciation words found in your text.
+- **Vocal cues**: chips for the square-bracket cues found in your text (see below).
+
+**Vocal cues.** Type a cue in square brackets where a sound or a change of delivery should happen:
+
+| Cue | Also accepted | What it asks for |
+|---|---|---|
+| `[laugh]` | `[laughs]`, `[laughter]`, `[chuckle]` | a short laugh |
+| `[sigh]` | `[sighs]` | a sigh |
+| `[breath]` | `[inhale]`, `[inhales deeply]` | an audible breath |
+| `[gasp]` | `[gasps]` | a gasp |
+| `[pause]` | `[short pause]` | a short pause |
+| `[long pause]` | | a longer pause |
+| `[whisper]` … `[/whisper]` | `[whispers]` | whisper the words in between |
+
+The app translates each cue into each provider's own syntax: an audio tag for ElevenLabs v3/v4 (`[laughs]`) and Gemini (`<laugh>`), `[laughter]` and `<break>` for Cartesia, ellipses for Deepgram pauses, and lines in the instructions prompt for OpenAI (and in Gemini's Style prompt for whispers). When a provider has no way to make a sound, the cue is removed rather than read aloud. Any other bracket tag, such as `[clears throat]`, is passed through to providers that read bracket tags (ElevenLabs v3/v4, Gemini) and removed for the rest. Open **What was sent** on a take to see what happened to every cue.
+
+Fillers like "um" and "uh" don't need cues: type them as words. Deepgram recommends this for a more natural delivery.
 
 > **Try:** load **Homographs** or **Emphasis and tone**. They usually show the biggest differences between providers.
 
@@ -72,6 +91,7 @@ The right panel chooses who speaks and how.
 When a provider is on, its row shows:
 
 - **Model.** The note under the pickers sums up that model's strengths and pronunciation support. The model can change how a pronunciation fix is applied (for example, ElevenLabs v4 gets inline IPA while Multilingual v2 gets a respelling).
+- **Cue prompt.** If your text has vocal cues and a provider's model ignores them (ElevenLabs Multilingual v2 or Flash, OpenAI tts-1 or tts-1-hd), a yellow box on that provider offers **Switch to** a model that supports cues, or **Keep** the current one so you can compare. Pauses work either way.
 - **Voice.**
   - ElevenLabs and Cartesia load the voices in your account (with a few defaults as fallback).
   - Deepgram, OpenAI and Google Gemini use built-in lists. Gemini shows each voice's character (Firm, Warm, Gravelly and so on).

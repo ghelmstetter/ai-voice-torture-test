@@ -6,7 +6,7 @@ AI Voice Torture Test is a small, self-hosted test bench for evaluating and comp
 
 ![AI Voice Torture Test: ElevenLabs, Cartesia, Deepgram, OpenAI, and Google Gemini reading the same Units and symbols test, each take showing a waveform, speed, and cost](docs/images/takes.jpg)
 
-**[Try the hosted demo →](https://ai-voice-torture-test.vercel.app/)** Listen to every provider read all eight torture tests, with speed and cost for each take. No sign-up or API key needed; to generate your own audio, run it locally (below).
+**[Try the hosted demo →](https://ai-voice-torture-test.vercel.app/)** Listen to every provider read all ten torture tests, with speed and cost for each take. No sign-up or API key needed; to generate your own audio, run it locally (below).
 
 ## Why I built this
 
@@ -28,7 +28,8 @@ Read the write-up: [I built a torture test for AI voices](https://ghelmstetter.s
 
 - **Side-by-side takes** from five providers on the same text, with click-to-seek waveforms.
 - **Per-take stats:** time to first audio, total time, real-time factor, characters, and estimated cost, with the fastest and cheapest marked.
-- **Eight test presets** aimed at known TTS weak spots: numbers and money, acronyms, homographs, names and brands, URLs and code, emphasis, units and symbols, and long sentences.
+- **Ten test presets** aimed at known TTS weak spots: numbers and money, acronyms, homographs, names and brands, URLs and code, emphasis, units and symbols, long sentences, disfluency (fillers, false starts, stutters), and vocalics (laughs, sighs, breaths, whispers).
+- **Vocal cues, five ways.** Type `[laugh]`, `[sigh]`, `[breath]`, `[gasp]`, `[pause]`, `[long pause]` or `[whisper]…[/whisper]` in your text. The app translates each cue into whatever each provider understands, or removes it and tells you why.
 - **Write test text with Claude:** torture tests, natural paragraphs, dialogue, or sentences built around your own problem words.
 - **One pronunciation list, five APIs.** Enter a word with a sounds-like spelling and/or IPA (Claude can suggest the IPA). The app translates it into each provider's mechanism and shows exactly what was sent.
 - **Provider tips:** workarounds from each provider's docs for pauses, emphasis, spelling things out, and numbers, with copyable examples.
@@ -48,6 +49,20 @@ Every provider has its own way of fixing pronunciation, so the app turns one sav
 | **Google Gemini** | a line in the Style prompt | respelling |
 
 ![The Pronunciations panel: a saved fix for nVidia with a chip per provider showing which method each one gets, and Saucony being added](docs/images/pronunciations.jpg)
+
+### How one vocal cue becomes five
+
+Laughs, sighs and whispers are where providers differ most. Some have tags for them, some take a description in a prompt, and some have no control at all. Type a cue in square brackets and the app sends each provider its own version:
+
+| Cue | ElevenLabs (v3/v4) | Cartesia | Deepgram | OpenAI (gpt-4o-mini-tts) | Google Gemini |
+|---|---|---|---|---|---|
+| `[laugh]` | `[laughs]` | `[laughter]` | removed | a line in `instructions` | `<laugh>` |
+| `[sigh]` | `[sighs]` | removed | removed | a line in `instructions` | `<sigh>` |
+| `[breath]` | `[inhales deeply]` | removed | removed | a line in `instructions` | `<breath>` |
+| `[pause]` | `[short pause]` | `<break time="600ms"/>` | `...` | `…` | `<short pause>` |
+| `[whisper]…[/whisper]` | `[whispers]` | lower `<volume>` (stand-in) | removed | "Whisper the words …" | "Whisper the words …" in Style |
+
+Other bracket tags, such as `[clears throat]` or `[sarcastic]`, are passed through to ElevenLabs v3/v4 and Gemini (which reads them in angle brackets) and removed for the others, so they're never read aloud. Each take lists what happened to every cue. ElevenLabs Multilingual v2 and Flash, and OpenAI's tts-1 models, ignore cues; when your text has cues, the app offers to switch those providers to a model that supports them.
 
 ## Quick start
 
@@ -145,7 +160,8 @@ Each provider is one file in `server/providers/`.
 ```
 server/
   index.js          HTTP server and API routes
-  synthesize.js     applies pronunciations, calls a provider, returns audio + metrics
+  synthesize.js     applies pronunciations and vocal cues, calls a provider, returns audio + metrics
+  cues.js           vocal cues ([laugh], [whisper]…): parsing and per-provider translation
   claude.js         test-text generation and IPA suggestions
   guard.js          passcode, rate limits, daily budget
   providers/        one file per provider, plus shared helpers

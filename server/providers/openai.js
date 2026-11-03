@@ -1,4 +1,5 @@
 import { timedFetch, compileLexicon, cleanIpa } from './util.js';
+import { removed } from '../cues.js';
 
 const API = 'https://api.openai.com/v1';
 const VOICES = ['marin', 'cedar', 'alloy', 'ash', 'ballad', 'coral', 'echo', 'fable', 'nova', 'onyx', 'sage', 'shimmer', 'verse'];
@@ -21,6 +22,8 @@ export default {
   fallbackVoices: VOICES.map((v) => ({ id: v, name: v[0].toUpperCase() + v.slice(1), tags: v === 'marin' || v === 'cedar' ? 'best quality' : '' })),
   staticVoices: true,
   speed: { min: 0.25, max: 4, step: 0.05 },
+  cueModels: ['gpt-4o-mini-tts'],
+  cueUpgrade: 'gpt-4o-mini-tts',
   options: [
     { key: 'instructions', label: 'Instructions', type: 'text', default: '', placeholder: 'e.g. Calm, clear, mid-pace narrator.', models: ['gpt-4o-mini-tts'] },
   ],
@@ -39,6 +42,20 @@ export default {
       return { skip: ipa ? 'tts-1 models can’t take IPA; add a sounds-like spelling.' : 'No sounds-like spelling.' };
     });
     return { ...result, extraInstructions: [...new Set(hints)].join(' '), warnings: [] };
+  },
+
+  cueHow: 'No inline tags. On gpt-4o-mini-tts, sounds and whispers become lines in the instructions prompt, anchored to the words before them; pauses become ellipses. tts-1 models keep only the pauses.',
+
+  cueRule(cue, { before, span, inner }, model) {
+    if (cue === 'pause') return { out: '…', method: 'ellipsis' };
+    if (cue === 'longPause') return { out: '… …', method: 'ellipsis ×2' };
+    if (model !== 'gpt-4o-mini-tts') return removed(`${model} has no instructions prompt. Switch to gpt-4o-mini-tts.`);
+    const where = before ? `right after "${before}"` : 'at the very start';
+    const SOUND = { laugh: 'Laugh briefly', sigh: 'Sigh audibly', breath: 'Take an audible breath', gasp: 'Gasp' };
+    if (SOUND[cue]) return { out: '', method: 'instructions', hint: `${SOUND[cue]} ${where}.` };
+    if (cue === 'whisper') return { out: '', method: 'instructions', hint: span ? `Whisper the words "${span}".` : `Whisper from ${where.replace('right after', 'the words after')} onward.` };
+    if (cue === 'endWhisper') return { out: '', method: 'instructions', hint: before ? `Return to your normal speaking voice right after "${before}".` : 'Return to your normal speaking voice.' };
+    return { out: '', method: 'instructions', hint: `Add this ${where}: ${inner}.` };
   },
 
   async synthesize({ key, text, model, voice, speed, options = {}, compiled }) {
@@ -64,6 +81,7 @@ export default {
 
   tips: [
     { title: 'Steer with instructions', body: 'gpt-4o-mini-tts takes a plain-language prompt for accent, emotion, intonation, pace, tone and whispering. It’s also the only lever for pronunciation hints.', example: 'Speak like a warm radio host. Say "Saucony" as "SOCK-uh-nee".' },
+    { title: 'Sounds through instructions', body: 'There are no inline tags, so laughs, sighs and whispers have to be described in the instructions prompt. The app does this for vocal cues, anchoring each one to the words before it. Results are less precise than real tags.', example: 'Laugh briefly right after "It was a disaster". Whisper the words "Don’t tell anyone".' },
     { title: 'No SSML or phonemes', body: 'Tags like <break> or <phoneme> are read as text or ignored. Respell tricky words in the input instead.', example: 'Siobhan → shi-VAWN' },
     { title: 'Pick marin or cedar', body: 'OpenAI recommends these two voices for best quality. tts-1 and tts-1-hd only have nine of the thirteen voices.' },
     { title: 'Latency', body: 'For the fastest first audio, stream wav or pcm instead of mp3.' },

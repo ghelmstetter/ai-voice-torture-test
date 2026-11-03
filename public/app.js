@@ -14,6 +14,11 @@ let lineup = store.get('sir.lineup', {});
 let lexicon = store.get('sir.lexicon', []);
 let currentAudio = null;
 let samples = null;
+const cueDismissed = new Set(); // "provider:model" pairs where the user chose to keep a model that ignores cues
+
+// Square-bracket vocal cues like [laugh] or [whisper]. Mirrors server/cues.js (not "[1]" or "[text](link)").
+const TAG_RE = /\[([^\[\]\n]{1,40})\](?!\()/g;
+const tagsIn = (text) => [...new Set([...String(text || '').matchAll(TAG_RE)].map((m) => m[0]).filter((t) => !/^\[\s*\d+\s*\]$/.test(t)))];
 
 const byId = (id) => cfg.providers.find((p) => p.id === id);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -145,7 +150,9 @@ function renderProviders() {
         <label>Voice <select data-f="voice"><option>Loading…</option></select></label>
         <div class="opts full"></div>
         <p class="prov-note"></p>
+        <div class="cue-notice full" hidden></div>
       </div>`;
+    el.dataset.pid = p.id;
     const toggle = $('input[type=checkbox]', el);
     toggle.addEventListener('change', () => {
       st.on = toggle.checked;
@@ -161,6 +168,7 @@ function renderProviders() {
       renderOptions(p, el);
       updateRunButton();
       refreshLexiconMethods();
+      updateCueNotices();
     });
     $('[data-f=voice]', el).addEventListener('change', (e) => { st.voice = e.target.value; saveLineup(); });
     list.append(el);
@@ -168,6 +176,33 @@ function renderProviders() {
     loadVoices(p).then(() => fillVoices(p, el));
   }
   updateRunButton();
+  updateCueNotices();
+}
+
+/**
+ * When the script has vocal cues and a provider's chosen model ignores them
+ * (ElevenLabs Multilingual v2, OpenAI tts-1), offer to switch models.
+ */
+function updateCueNotices() {
+  if (!cfg) return;
+  const hasCues = tagsIn($('#text')?.value).length > 0;
+  for (const el of $$('#provider-list .prov')) {
+    const p = byId(el.dataset.pid);
+    const box = $('.cue-notice', el);
+    const st = lineup[p.id];
+    const show = hasCues && p.cueModels && !p.cueModels.includes(st.model) && !cueDismissed.has(`${p.id}:${st.model}`);
+    box.hidden = !show;
+    if (!show) { box.innerHTML = ''; continue; }
+    const label = (id) => p.models.find((m) => m.id === id)?.label || id;
+    box.innerHTML = `<p><b>${esc(label(st.model))} ignores vocal cues</b>, so [laugh], [whisper] and similar tags will be removed (pauses still work). Switch to ${esc(label(p.cueUpgrade))} to hear them, or keep ${esc(label(st.model))} to compare.</p>
+      <div class="cue-actions"><button class="secondary small" data-act="switch">Switch to ${esc(label(p.cueUpgrade))}</button><button class="ghost small" data-act="keep">Keep ${esc(label(st.model))}</button></div>`;
+    $('[data-act=switch]', box).onclick = () => {
+      const sel = $('[data-f=model]', el);
+      sel.value = p.cueUpgrade;
+      sel.dispatchEvent(new Event('change'));
+    };
+    $('[data-act=keep]', box).onclick = () => { cueDismissed.add(`${p.id}:${st.model}`); updateCueNotices(); };
+  }
 }
 
 function renderOptions(p, el) {
@@ -263,7 +298,12 @@ function onTextChange() {
   $('#char-count').textContent = `${n.toLocaleString()} characters${over ? ` · limit is ${cfg.maxChars.toLocaleString()}` : ''}`;
   $('#char-count').style.color = over ? 'var(--danger)' : '';
   const found = lexicon.filter((e) => wordRegex(e).test(text));
-  $('#found-words').innerHTML = found.length ? `Pronunciation fixes in use: ${found.map((e) => `<span>${esc(e.word)}</span>`).join('')}` : '';
+  const tags = tagsIn(text);
+  $('#found-words').innerHTML = [
+    found.length ? `Pronunciation fixes in use: ${found.map((e) => `<span>${esc(e.word)}</span>`).join('')}` : '',
+    tags.length ? `Vocal cues: ${tags.map((t) => `<span class="cue">${esc(t)}</span>`).join('')}` : '',
+  ].filter(Boolean).join('<i class="sep"></i>');
+  updateCueNotices();
   $$('.preset[data-id]', $('#preset-list')).forEach((b) => b.setAttribute('aria-pressed', presets.find((p) => p.id === b.dataset.id)?.text === text));
   updateRunButton();
   $('#preview').hidden = true;
@@ -313,8 +353,9 @@ async function preview() {
 
 function sentDetails(x) {
   const applied = (x.applied || []).map((a) => `<li><b>${esc(a.word)}</b> → ${esc(a.method)}${a.count > 1 ? ` ×${a.count}` : ''}${a.note ? ` (${esc(a.note)})` : ''}</li>`).join('');
+  const cues = (x.cues || []).map((c) => `<li class="${c.method === 'removed' ? 'dropped' : ''}"><b>${esc(c.tag)}</b> → ${c.method === 'removed' ? '<em>removed</em>' : `${esc(c.method)}${c.sent ? ` <code>${esc(c.sent)}</code>` : ''}`}${c.count > 1 ? ` ×${c.count}` : ''}${c.note ? ` <span class="why">${esc(c.note)}</span>` : ''}</li>`).join('');
   const warn = (x.warnings || []).map((w) => `<p class="warn">${esc(w)}</p>`).join('');
-  return `<pre class="sent-text">${esc(x.sentText ?? x.text)}</pre>${applied ? `<ul class="applied">${applied}</ul>` : ''}${warn}`;
+  return `<pre class="sent-text">${esc(x.sentText ?? x.text)}</pre>${applied ? `<ul class="applied">${applied}</ul>` : ''}${cues ? `<h4>Vocal cues</h4><ul class="applied cues">${cues}</ul>` : ''}${warn}`;
 }
 
 /* ---------------- Running takes ---------------- */
@@ -693,7 +734,7 @@ function showTips(id) {
   body.style.setProperty('--c', p.color);
   const price = (pr) => (pr?.per1k != null ? `$${pr.per1k.toFixed(3)} / 1K chars` : pr?.perMin != null ? `~$${pr.perMin.toFixed(3)} / min` : '—');
   body.innerHTML = `
-    <div class="tips-how"><strong>How this app applies your fixes:</strong> ${esc(p.lexiconHow)}</div>
+    <div class="tips-how"><strong>How this app applies your fixes:</strong> ${esc(p.lexiconHow)}${p.cueHow ? `<br><strong>Vocal cues:</strong> ${esc(p.cueHow)}` : ''}</div>
     <table class="models-table"><thead><tr><th>Model</th><th>List price</th><th>Notes</th></tr></thead><tbody>
       ${p.models.map((m) => `<tr><td>${esc(m.label)}</td><td>${price(m.price)}</td><td>${esc(m.notes || '')}</td></tr>`).join('')}
     </tbody></table>

@@ -49,4 +49,16 @@ export const presets = [
     checks: 'Breath, pacing and pitch over a long, clause-heavy sentence.',
     text: 'If you have ever tried to explain to a room full of tired engineers, at the end of a long Friday, why the dashboard that everyone had agreed was finished on Tuesday now needs a completely different layout because a single customer asked a single question during a single demo, you already know exactly how this story ends.',
   },
+  {
+    id: 'disfluency',
+    title: 'Disfluency',
+    checks: 'Fillers (um, uh, hmm), false starts, a stutter, self-corrections and trailing off. Does it sound like someone thinking out loud, or like someone reading “um” off a page?',
+    text: 'So, um, I was gonna call you yesterday, but — uh — I-I kind of forgot. Wait, no, that’s not… okay, I didn’t forget. I just, you know, didn’t want to. Hmm. Anyway! Where were we? Oh, right, the, uh, the budget.',
+  },
+  {
+    id: 'vocalics',
+    title: 'Vocalics',
+    checks: 'Vocal cues in square brackets: [laugh], [sigh], [breath], [gasp], [pause], [long pause] and [whisper]…[/whisper]. The app translates each cue for every provider, or tells you it was removed.',
+    text: '[sigh] Okay, here’s the thing. [pause] I tried the new recipe. [laugh] It was a disaster. [breath] The smoke alarm went off twice, and the dog — [gasp] wait, is that him now? [whisper] Don’t tell anyone I ordered pizza. [/whisper] [long pause] Anyway, dinner’s ready!',
+  },
 ];

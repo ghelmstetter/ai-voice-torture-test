@@ -1,4 +1,5 @@
 import { timedFetch, compileLexicon, cleanIpa } from './util.js';
+import { removed } from '../cues.js';
 
 const API = 'https://api.cartesia.ai';
 const VERSION = '2026-08-14';
@@ -74,6 +75,20 @@ export default {
     return { ...result, warnings };
   },
 
+  cueHow: '[laughter] for laughs, <break> for pauses, and a lower <volume> as a stand-in for whispering. Sighs, breaths and gasps have no control and are removed.',
+
+  cueRule(cue) {
+    switch (cue) {
+      case 'laugh': return { out: '[laughter]', method: 'laughter tag' };
+      case 'pause': return { out: '<break time="600ms"/>', method: '<break> tag' };
+      case 'longPause': return { out: '<break time="1500ms"/>', method: '<break> tag' };
+      case 'whisper': return { out: '<volume ratio="0.5"/>', method: 'quieter (stand-in)', note: 'No whisper control; volume is lowered instead.' };
+      case 'endWhisper': return { out: '<volume ratio="1"/>', method: 'volume reset' };
+      case 'unknown': return removed('Cartesia would read an unknown tag aloud.');
+      default: return removed('Cartesia documents only laughter as a nonverbal sound.');
+    }
+  },
+
   async synthesize({ key, text, model, voice, speed, options = {} }) {
     const body = {
       model_id: model,
@@ -100,6 +115,7 @@ export default {
     { title: 'Saved dictionaries', body: 'Create a pronunciation dictionary (API or the playground’s Pronunciation tab) and pass pronunciation_dict_id on each request. Case-insensitive matching needs Sonic 3.6+.' },
     { title: 'Spell things out', body: 'Wrap codes and acronyms in <spell>. A space inside forces a longer pause; other punctuation may be read aloud.', example: 'Your code is <spell>A7X 92</spell>.' },
     { title: 'Pauses, speed, volume', body: '<break time="500ms"/>, <speed ratio="1.2"/> (0.6–1.5) and <volume ratio="1.5"/> (0.5–2.0). Speed is guidance, so small changes are hard to hear. Each break counts as one billed character.' },
-    { title: 'Emotion (beta)', body: '<emotion value="sad"/> or the emotion option here. Works best with voices tagged “Emotive”.' },
+    { title: 'Emotion (beta)', body: '<emotion value="sad"/> or the emotion option here. Over 50 values, including hesitant, anxious and confused; the emotion has to match the words. Works best with voices tagged “Emotive”.' },
+    { title: 'Laughter', body: 'Put [laughter] in the transcript where the laugh should go. It’s the only nonverbal sound Cartesia documents; sighs and breaths have no tag.', example: 'That’s hilarious [laughter] okay, okay.' },
   ],
 };

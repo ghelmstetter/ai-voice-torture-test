@@ -1,4 +1,5 @@
 import { timedFetch, compileLexicon, cleanIpa } from './util.js';
+import { removed } from '../cues.js';
 
 const API = 'https://api.deepgram.com';
 
@@ -39,6 +40,15 @@ export default {
     }), warnings: [] };
   },
 
+  cueHow: 'No tags for sounds. Pauses become ellipses (Deepgram’s “thinking pause”); laughs, sighs, breaths, gasps and whispers are removed. Fillers like “um” and “uh” are typed as plain words.',
+
+  cueRule(cue) {
+    if (cue === 'pause') return { out: '...', method: 'ellipsis' };
+    if (cue === 'longPause') return { out: '......', method: 'ellipsis ×2' };
+    if (cue === 'unknown') return removed('Deepgram would read an unknown tag aloud.');
+    return removed('Aura-2 has no control for this sound.');
+  },
+
   async synthesize({ key, text, model, voice, speed, compiled }) {
     const warnings = [];
     const isFlux = model === 'flux' || voice.startsWith('flux');
@@ -68,6 +78,7 @@ export default {
     { title: 'Check what was applied', body: 'Responses include dg-pronunciations-applied and dg-warnings headers (PRON-### codes). This app shows them under each take.' },
     { title: 'Acronyms and codes', body: 'Put acronyms in quotes. Spell names and codes with spaces between letters, not dashes or commas.', example: '2020 Acura "RX" 350 · J O H N' },
     { title: 'Pauses come from punctuation', body: 'Aura-2 has no pause tag. Use commas, periods, and a spaced hyphen for an extra beat. Flux batch supports \\{pause:500ms\\} (500–3000 ms, max 8).', example: 'Your total is $45.82 - please pull forward.' },
+    { title: 'Fillers sound natural', body: 'Deepgram recommends typing “um” and “uh” for a more natural delivery, and ellipses for a thinking pause. Use dots in groups of three; spaced dots (. . .) make a silent pause on Aura-2. There are no tags for laughs or sighs.', example: 'So… um, are you there? Uh, hello?' },
     { title: 'Go easy on emphasis', body: 'Overusing ALL CAPS or “!!!” is a listed pitfall. Aura-2 picks pacing and expressiveness from context and word choice.' },
     { title: 'URLs and emails', body: 'Put a space before a question mark that follows a URL or email address.' },
   ],

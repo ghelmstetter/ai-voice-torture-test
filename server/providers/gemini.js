@@ -1,4 +1,5 @@
 import { timedFetch, compileLexicon, cleanIpa, ProviderError } from './util.js';
+import { removed } from '../cues.js';
 
 // Gemini TTS through the Gemini API (AI Studio key), using the Interactions endpoint.
 const API = 'https://generativelanguage.googleapis.com/v1beta/interactions';
@@ -23,7 +24,7 @@ export default {
   ],
   // Billed per audio token (25 tokens per second). Prices are for 2026 and double on Jan 1, 2027.
   models: [
-    { id: 'gemini-3.8-flash-tts', label: 'Gemini 3.8 Flash TTS', price: { perMin: 0.0135 }, notes: 'Steerable with a style prompt and inline tags like <sigh>. Price is an estimate per audio minute.' },
+    { id: 'gemini-3.8-flash-tts', label: 'Gemini 3.8 Flash TTS', price: { perMin: 0.0135 }, notes: 'Steerable with a style prompt and inline audio tags like <sigh>. Price is an estimate per audio minute.' },
     { id: 'gemini-3.8-flash-lite-tts', label: 'Gemini 3.8 Flash-Lite TTS', price: { perMin: 0.009 }, notes: 'Cheaper and faster; fewer languages. Price is an estimate per audio minute.' },
   ],
   defaultModel: 'gemini-3.8-flash-tts',
@@ -48,6 +49,25 @@ export default {
       return { skip: 'No IPA or sounds-like spelling.' };
     });
     return { ...result, extraInstructions: [...new Set(hints)].join(' '), warnings: [] };
+  },
+
+  cueHow: 'Gemini 3.8 tags use angle brackets: <laugh>, <sigh>, <breath>, <gasp>, <short pause>, <long pause>. Whispers go in the Style prompt (“Whisper the words …”), because inline whisper tags were read aloud. Other bracket tags are sent in angle brackets. Two tags in a row get a comma between them.',
+
+  // Gemini 3.8 reads angle-bracket tags; square-bracket tags like [whispers] were spoken aloud in testing.
+  cueRule(cue, { inner, span, before }) {
+    const TAGS = { laugh: '<laugh>', sigh: '<sigh>', breath: '<breath>', gasp: '<gasp>', pause: '<short pause>', longPause: '<long pause>' };
+    if (cue === 'unknown') return { out: `<${inner}>`, method: 'passed through', note: 'Sent as an angle-bracket tag; tags must be in English. Unlisted tags may be read aloud.' };
+    // Inline whisper tags were read aloud in testing, so whispering goes in the Style prompt (as Google suggests).
+    if (cue === 'whisper') return { out: '', method: 'style prompt', hint: span ? `Speak in your normal voice throughout. Whisper only the words "${span}", then go straight back to your normal voice.` : `Speak in your normal voice, then whisper everything after "${before}".` };
+    if (cue === 'endWhisper') return { out: '', method: 'style prompt', note: 'Covered by the whisper instruction in Style.' };
+    return { out: TAGS[cue], method: 'audio tag' };
+  },
+
+  // Google advises against two tags directly next to each other.
+  cuePost(text) {
+    const re = /(<(?:laugh|sigh|breath|gasp|short pause|long pause|[a-z][a-z ]{0,38})>)(\s*)(?=<[a-z])/gi;
+    if (!re.test(text)) return { text, warnings: [] };
+    return { text: text.replace(re, '$1, '), warnings: ['Two audio tags were next to each other, so a comma was added between them (Google advises against back-to-back tags).'] };
   },
 
   async synthesize({ key, text, model, voice, options = {}, compiled }) {
@@ -89,7 +109,7 @@ export default {
 
   tips: [
     { title: 'Steer with Style', body: 'Gemini reads your text word for word; tone, emotion, pace and volume go in the Style prompt, not in the script.', example: 'Speak slowly and warmly, like a late-night radio host.' },
-    { title: 'Inline sound tags', body: 'Put human sounds and pauses in angle brackets right in the text. Keep the tags in English, even in other languages.', example: 'Well <sigh> I guess we start over. <short pause> Okay!' },
+    { title: 'Audio tags', body: 'Gemini 3.8 takes tags in angle brackets right where the sound should happen: <laugh>, <sigh>, <breath>, <gasp>, <short pause>, <long pause>. Ask for a whisper in Style instead; whisper tags were read aloud in testing. Square-bracket tags (the Gemini 3.1 style) may be read aloud too. Keep tags in English and never put two back to back. The app’s vocal cues become these tags.', example: '<sigh> Well, I guess we start over. <short pause> Okay. Don’t tell anyone.' },
     { title: 'No SSML or phonemes', body: 'There’s no phoneme markup. Respell tricky words, or describe the pronunciation in Style.', example: 'Siobhan → shi-VAWN' },
     { title: 'Emphasis and pacing', body: 'Capitalize a word to stress it. Commas, dashes and ellipses shape the rhythm.', example: 'I didn’t say SHE stole it… I said she BORROWED it.' },
     { title: 'Accents', body: 'Google advises against asking for an accent in Style. Pick a regional voice from the extended voice library instead.' },

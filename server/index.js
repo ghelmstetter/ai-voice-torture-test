@@ -5,6 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { providers, providerList, isConfigured, keyNames } from './providers/index.js';
 import { synthesize } from './synthesize.js';
+import { compileFor } from './cues.js';
 import { generateText, suggestPronunciation } from './claude.js';
 import { guardInfo, checkLive, checkPasscode } from './guard.js';
 
@@ -56,6 +57,7 @@ async function voicesFor(p) {
 const publicProvider = (p) => ({
   id: p.id, name: p.name, color: p.color, docs: p.docs, models: p.models, defaultModel: p.defaultModel,
   speed: p.speed, options: p.options, tips: p.tips, lexiconHow: p.lexiconHow,
+  cueHow: p.cueHow || null, cueModels: p.cueModels || null, cueUpgrade: p.cueUpgrade || null,
   configured: isConfigured(p), envKey: keyNames(p).join(' + '),
 });
 
@@ -80,7 +82,7 @@ const routes = {
       results: targets.map((t) => {
         const p = providers[t.provider];
         if (!p) return { provider: t.provider, error: 'Unknown provider' };
-        return { provider: p.id, model: t.model, ...p.compile(text, lexicon, { model: t.model, speed: Number(t.speed) || 1 }) };
+        return { provider: p.id, model: t.model, ...compileFor(p, text, lexicon, { model: t.model, speed: Number(t.speed) || 1 }) };
       }),
     };
   },

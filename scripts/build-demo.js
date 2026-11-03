@@ -31,6 +31,12 @@ const lineup = {
   mock: { model: 'tone-1', voice: 'hum' },
 };
 
+// Per-test changes to the lineup. Multilingual v2 ignores audio tags, so the
+// Vocalics test uses Eleven v4 to show what ElevenLabs can do with cues.
+const overrides = {
+  vocalics: { elevenlabs: { model: 'eleven_v4' } },
+};
+
 const args = process.argv.slice(2);
 const only = args.filter((a) => !a.startsWith('--'));
 const providerArg = args.find((a) => a.startsWith('--provider='));
@@ -47,7 +53,7 @@ let chars = 0;
 
 for (const preset of chosen) {
   for (const p of ready) {
-    const { model, voice } = lineup[p.id];
+    const { model, voice } = { ...lineup[p.id], ...overrides[preset.id]?.[p.id] };
     process.stdout.write(`${preset.id} · ${p.name} … `);
     try {
       const r = await synthesize({ provider: p.id, model, voice, text: preset.text, lexicon });

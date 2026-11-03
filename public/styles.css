@@ -137,6 +137,8 @@ textarea#text {
 .script-foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; color: var(--dim); font-size: 13px; }
 .found-words { display: flex; gap: 6px; flex-wrap: wrap; }
 .found-words span { padding: 2px 9px; border-radius: 999px; background: var(--raise); color: var(--text); font-size: 12px; }
+.found-words span.cue { font-family: ui-monospace, 'Cascadia Code', Consolas, monospace; }
+.found-words .sep { flex-basis: 100%; height: 0; }
 
 .preset-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; }
 .preset {
@@ -183,6 +185,16 @@ textarea#text {
 .prov-fields .full { grid-column: 1 / -1; }
 .prov-note { font-size: 12px; color: var(--dim); grid-column: 1 / -1; margin: -2px 0 0; }
 .prov:not(.on) .prov-fields { display: none; }
+.cue-notice {
+  padding: 10px 12px; border-radius: var(--radius-s); font-size: 13px;
+  background: rgba(242, 193, 78, 0.08); border: 1px solid rgba(242, 193, 78, 0.3); color: #f6dc9c;
+}
+.cue-notice p { margin: 0; }
+.cue-notice b { color: var(--text); font-weight: 600; }
+.cue-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+.cue-actions .small { padding: 5px 12px; font-size: 13px; }
+.cue-actions .ghost { color: #f6dc9c; }
+.preview h4 { margin: 8px 0 0; font-size: 12px; color: var(--dim); font-weight: 500; }
 
 .run-bar { display: flex; justify-content: flex-end; align-items: center; gap: 10px; flex-wrap: wrap; }
 .run-bar .primary { min-width: 180px; }
@@ -200,6 +212,9 @@ pre.sent-text {
 }
 .applied { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 4px; font-size: 13px; color: var(--muted); }
 .applied b { color: var(--text); font-weight: 500; }
+.applied code { font: 12px ui-monospace, 'Cascadia Code', Consolas, monospace; color: var(--text); }
+.applied.cues li.dropped b { text-decoration: line-through; text-decoration-color: var(--dim); }
+.applied .why { color: var(--dim); }
 .warn { color: #f6dc9c; font-size: 13px; margin: 6px 0 0; }
 
 /* ---------- Takes ---------- */

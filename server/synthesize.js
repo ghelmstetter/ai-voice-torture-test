@@ -1,6 +1,7 @@
 import { providers, isConfigured, keyNames } from './providers/index.js';
+import { compileFor } from './cues.js';
 
-/** Run one take: apply the lexicon, call the provider, return audio + metrics. */
+/** Run one take: apply the lexicon and vocal cues, call the provider, return audio + metrics. */
 export async function synthesize({ provider, model, voice, text, lexicon = [], speed = 1, options = {} }) {
   const p = providers[provider];
   if (!p) throw Object.assign(new Error(`Unknown provider “${provider}”.`), { status: 400 });
@@ -8,7 +9,7 @@ export async function synthesize({ provider, model, voice, text, lexicon = [], s
   const key = p.envKey ? process.env[p.envKey] : 'none';
 
   const m = model || p.defaultModel;
-  const compiled = p.compile(text, lexicon, { model: m, speed: Number(speed) || 1 });
+  const compiled = compileFor(p, text, lexicon, { model: m, speed: Number(speed) || 1 });
   const r = await p.synthesize({ key, text: compiled.text, model: m, voice, speed: Number(speed) || 1, options, compiled });
 
   const modelInfo = p.models.find((x) => x.id === m);
@@ -27,6 +28,7 @@ export async function synthesize({ provider, model, voice, text, lexicon = [], s
     sentText: compiled.text,
     sent: redact(r.sent),
     applied: compiled.applied,
+    cues: compiled.cues,
     warnings: [...(compiled.warnings || []), ...(r.warnings || [])],
     providerReport: r.providerReport || null,
   };
