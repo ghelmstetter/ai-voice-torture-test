@@ -54,7 +54,7 @@ async function init() {
   }
   const ready = cfg.providers.filter((p) => p.configured);
   if (!cfg.liveEnabled) {
-    showNotice('<strong>Hosted demo:</strong> you’re hearing pre-recorded takes. To generate your own audio and try pronunciation fixes live, <a href="https://github.com/ghelmstetter/ai-voice-torture-test#quick-start" target="_blank" rel="noopener">run it locally</a> with your own keys.', 'info');
+    showNotice('<strong>Hosted demo:</strong> you’re hearing pre-recorded takes. To generate your own audio and try pronunciation fixes live, <a href="https://github.com/ghelmstetter/ai-voice-torture-test#quick-start" target="_blank" rel="noopener">run it locally</a> with your own keys.', 'demo');
   } else if (!ready.length) {
     showNotice('No API keys found. Copy <code>.env.example</code> to <code>.env</code>, add at least one provider key, then restart the server.');
   }
@@ -71,7 +71,7 @@ async function init() {
     $('#passcode').value = saved;
     $('#passcode').addEventListener('input', (e) => { sessionStorage.setItem('sir.pass', e.target.value); $('#passcode-error').hidden = true; });
     if (cfg.liveEnabled && !saved) {
-      showNotice('<strong>Hosted demo:</strong> Samples are open to everyone. Live generation needs a passcode; if you were given one, choose <strong>Live</strong> and enter it next to <strong>Generate</strong>.', 'info');
+      showNotice('<strong>Hosted demo:</strong> Samples are open to everyone. Live generation needs a passcode; if you were given one, choose <strong>Live</strong> and enter it next to <strong>Generate</strong>. Or <a href="https://github.com/ghelmstetter/ai-voice-torture-test#quick-start" target="_blank" rel="noopener">run the full version yourself</a> with your own API keys.', 'demo');
       setMode('samples');
     }
   }
@@ -110,7 +110,8 @@ async function init() {
 function showNotice(html, kind = '') {
   const n = $('#notice');
   n.className = `notice ${kind}`.trim();
-  n.innerHTML = html;
+  // The hosted-demo notice gets an icon so it can't be missed.
+  n.innerHTML = kind === 'demo' ? `<span class="notice-icon" aria-hidden="true">i</span><div>${html}</div>` : html;
   n.hidden = false;
 }
 

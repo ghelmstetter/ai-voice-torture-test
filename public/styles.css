@@ -129,6 +129,15 @@ label.check { display: flex; align-items: center; gap: 8px; }
 .notice code { color: var(--text); }
 .notice a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 .notice.info { background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 255, 255, 0.14); color: var(--text); }
+.notice.demo {
+  display: flex; gap: 12px; align-items: flex-start; line-height: 1.5;
+  background: rgba(242, 193, 78, 0.16); border-color: rgba(242, 193, 78, 0.55); border-left: 4px solid #F2C14E; color: #fbe7b5;
+}
+.notice.demo strong { color: #fff3d1; font-weight: 600; }
+.notice-icon {
+  flex: none; width: 20px; height: 20px; margin-top: 1px; border-radius: 50%;
+  display: grid; place-items: center; background: #F2C14E; color: var(--bg); font: 700 13px/1 system-ui, sans-serif;
+}
 
 /* ---------- Script ---------- */
 textarea#text {
